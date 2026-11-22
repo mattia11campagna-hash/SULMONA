@@ -87,6 +87,10 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 }
 .bottone.scuro { background: var(--nero); color: var(--bianco); border-color: var(--nero); }
 .bottone.scuro:hover { background: transparent; color: var(--nero); }
+.bottone.contorno { background: transparent; color: var(--nero); border-color: var(--nero); text-align: center; }
+.bottone.contorno:hover { background: var(--nero); color: var(--bianco); }
+.bottone.contorno span { display: inline-block; margin-left: .4rem; transition: transform .4s var(--curva); }
+.bottone.contorno:hover span { transform: translateY(3px); }
 .bottone.chiaro { background: var(--bianco); color: var(--nero); border-color: var(--bianco); }
 .bottone.chiaro:hover { background: transparent; color: var(--bianco); }
 
@@ -231,7 +235,8 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .orari.in-capitolo { margin: .5rem 0 0; display: table; }
 .tratto { padding: .35rem 0 .35rem 2.6rem; font-size: .85rem; color: var(--tenue); }
 .tratto-freccia { position: absolute; left: calc(-2.25rem + 2px); background: var(--carta); font-size: .8rem; line-height: 1.4; color: var(--nero); }
-.percorso-lato { position: sticky; top: calc(var(--barra) + 2rem); display: grid; gap: 1.5rem; }
+.percorso-lato { position: sticky; top: calc(var(--barra) + 2rem); display: grid; gap: .75rem; }
+.percorso-mappa { margin-bottom: .75rem; }
 .percorso-mappa .segnaposto-area, .percorso-mappa img { aspect-ratio: 4 / 5; }
 .link-maps { text-align: center; }
 .link-maps.disattivo { opacity: .45; pointer-events: none; font-style: italic; }
