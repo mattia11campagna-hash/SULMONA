@@ -2,141 +2,195 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sulmona – Guida per la prima visita</title>
-  <meta name="description" content="Sulmona, la città di Ovidio e dei confetti nel cuore della Valle Peligna: storia, cosa vedere, sapori, eventi e domande frequenti.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e0e0e">
+  <title>Sulmona – Itinerario</title>
+  <meta name="description" content="Sulmona, la città di Ovidio e dei confetti: un itinerario in 7 tappe nel cuore della Valle Peligna.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="barra">
+  <!-- Barra superiore -->
+  <header id="barra" class="barra">
     <a class="marchio" href="#top">Sulmona</a>
-    <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu">
-      <span></span><span></span><span></span>
+    <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu">
+      <span class="menu-testo">Menu</span>
+      <span class="menu-linee" aria-hidden="true"><span></span><span></span></span>
     </button>
-    <nav id="nav" class="nav" aria-label="Sezioni della pagina">
-      <a href="#storia">Storia</a>
-      <a href="#confetto">Il confetto</a>
-      <a href="#cosa-vedere">Cosa vedere</a>
-      <a href="#sapori">Sapori</a>
-      <a href="#eventi">Eventi</a>
-      <a href="#faq">FAQ</a>
-      <a class="nav-cta link-orari" href="#" target="_blank" rel="noopener">Orari e biglietti</a>
-    </nav>
   </header>
+
+  <!-- Menu a tutto schermo -->
+  <nav id="menu" class="menu" aria-label="Menu">
+    <div class="menu-interno">
+      <div>
+        <p class="etichetta">L'itinerario</p>
+        <ol id="menu-tappe" class="menu-tappe"></ol>
+      </div>
+      <div>
+        <p class="etichetta">Scopri</p>
+        <ul class="menu-link">
+          <li><a href="#info">Info utili</a></li>
+          <li><a href="#confetto">Il confetto</a></li>
+          <li><a href="#storia">Storia</a></li>
+          <li><a href="#sapori">Sapori</a></li>
+          <li><a href="#eventi">Eventi</a></li>
+          <li><a href="#faq">Domande frequenti</a></li>
+        </ul>
+        <a class="bottone scuro link-orari" href="#" target="_blank" rel="noopener">Orari e biglietti</a>
+        <p id="menu-nota" class="menu-nota"></p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Indicatore della tappa corrente -->
+  <div id="progresso" class="progresso" aria-hidden="true">
+    <span id="progresso-n" class="progresso-n">01 / 07</span>
+    <span id="progresso-nome" class="progresso-nome"></span>
+    <span class="progresso-traccia"><span id="progresso-linea" class="progresso-linea"></span></span>
+  </div>
 
   <main id="top">
 
-    <!-- Intestazione -->
-    <section class="hero">
-      <div class="hero-testo">
-        <p id="sopratitolo" class="sopratitolo"></p>
-        <h1 id="titolo"></h1>
-        <p id="benvenuto" class="benvenuto"></p>
-        <div class="hero-azioni">
-          <a class="bottone" href="#cosa-vedere">Inizia la visita</a>
-          <a class="bottone secondario link-orari" href="#" target="_blank" rel="noopener">Orari e biglietti</a>
-        </div>
+    <!-- ============ APERTURA ============ -->
+    <section class="apertura">
+      <div id="ap-fondo" class="apertura-fondo"></div>
+      <div class="apertura-velo"></div>
+      <div class="apertura-testo">
+        <h1>
+          <span id="ap-citta" class="ap-citta"></span>
+          <span class="ap-linea" aria-hidden="true"></span>
+          <span id="ap-titolo" class="ap-titolo"></span>
+        </h1>
+        <p id="ap-sottotitolo" class="ap-sottotitolo"></p>
       </div>
-      <div id="foto-hero" class="hero-foto"></div>
+      <a class="scorri" href="#inizio" aria-label="Inizia l'itinerario">
+        <span>Scorri</span><span class="scorri-linea"></span>
+      </a>
     </section>
 
-    <!-- Introduzione -->
-    <section class="intro contenitore">
-      <p id="intro-testo" class="intro-testo"></p>
-      <dl id="in-breve" class="in-breve"></dl>
+    <!-- ============ INTRO + INDICE ============ -->
+    <section id="inizio" class="intro">
+      <div class="contenitore">
+        <p class="etichetta rivela">Benvenuti</p>
+        <p id="intro-testo" class="intro-testo rivela"></p>
+        <dl id="in-breve" class="in-breve rivela"></dl>
+      </div>
+      <div class="contenitore indice-blocco">
+        <p class="etichetta rivela">Le tappe</p>
+        <ol id="indice" class="indice rivela"></ol>
+      </div>
+    </section>
+
+    <!-- ============ ITINERARIO ============ -->
+    <section id="itinerario" class="itinerario">
+      <div id="tappe"></div>
+
+      <div class="contenitore prosegui rivela">
+        <div>
+          <p class="etichetta">Anche in città</p>
+          <ul id="anche-citta"></ul>
+        </div>
+        <div>
+          <p class="etichetta">Nei dintorni</p>
+          <ul id="dintorni"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INFO UTILI ============ -->
+    <section id="info" class="sezione info">
+      <div class="contenitore">
+        <header class="titolo-sezione rivela">
+          <p class="etichetta">Prima di partire</p>
+          <h2>Info utili</h2>
+        </header>
+
+        <dl id="dati-tecnici" class="dati-tecnici rivela"></dl>
+
+        <div class="info-griglia">
+          <div id="info-accessibile" class="info-blocco accessibile rivela"></div>
+          <div id="info-abbigliamento" class="info-blocco rivela"></div>
+          <div id="info-escursione" class="info-blocco rivela"></div>
+        </div>
+
+        <div class="porta rivela">
+          <div>
+            <p class="etichetta"><span class="segno si" aria-hidden="true">+</span> Cosa portare</p>
+            <ul id="info-portare"></ul>
+          </div>
+          <div>
+            <p class="etichetta"><span class="segno no" aria-hidden="true">−</span> Cosa non portare</p>
+            <ul id="info-non-portare"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPROFONDIMENTI ============ -->
+    <div id="approfondisci" class="approfondisci-apertura">
+      <div class="contenitore rivela">
+        <p class="etichetta">Approfondisci</p>
+        <h2>La città oltre<br>l'itinerario</h2>
+      </div>
+    </div>
+
+    <!-- Il confetto -->
+    <section id="confetto" class="sezione confetto">
+      <div class="contenitore due-colonne">
+        <div class="rivela-media" id="confetto-media"></div>
+        <div class="rivela">
+          <p class="etichetta">Il simbolo della città</p>
+          <h2>Il confetto</h2>
+          <div id="confetto-testo" class="testo"></div>
+          <ul id="confetto-punti" class="punti"></ul>
+        </div>
+      </div>
     </section>
 
     <!-- Storia -->
     <section id="storia" class="sezione">
       <div class="contenitore">
-        <header class="titolo-sezione">
-          <p class="occhiello">Linea del tempo</p>
+        <header class="titolo-sezione rivela">
+          <p class="etichetta">Linea del tempo</p>
           <h2>Storia</h2>
         </header>
         <ol id="timeline" class="timeline"></ol>
       </div>
     </section>
 
-    <!-- Il confetto (sezione simbolo) -->
-    <section id="confetto" class="sezione sezione-confetto">
-      <div class="contenitore due-colonne">
-        <div>
-          <header class="titolo-sezione">
-            <p class="occhiello">Il simbolo della città</p>
-            <h2>Il confetto</h2>
-          </header>
-          <div id="confetto-testo" class="testo"></div>
-          <ul id="confetto-punti" class="punti"></ul>
-        </div>
-        <div id="confetto-foto"></div>
-      </div>
-    </section>
-
-    <!-- Cosa vedere -->
-    <section id="cosa-vedere" class="sezione">
-      <div class="contenitore">
-        <header class="titolo-sezione">
-          <p class="occhiello">Le 7 tappe</p>
-          <h2>Cosa vedere</h2>
-          <p id="vedere-intro" class="sottotitolo"></p>
-        </header>
-        <div id="tappe" class="griglia-tappe"></div>
-
-        <div class="altre-tappe">
-          <div>
-            <h3>Anche in città</h3>
-            <ul id="anche-citta"></ul>
-          </div>
-          <div>
-            <h3>Nei dintorni</h3>
-            <ul id="dintorni"></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Sapori -->
-    <section id="sapori" class="sezione sezione-chiara">
-      <div class="contenitore">
-        <header class="titolo-sezione">
-          <p class="occhiello">A tavola</p>
+    <section id="sapori" class="sezione chiara">
+      <div class="contenitore due-colonne">
+        <div class="rivela">
+          <p class="etichetta">A tavola</p>
           <h2>Sapori</h2>
           <p id="sapori-intro" class="sottotitolo"></p>
-        </header>
-        <div class="due-colonne">
-          <div>
-            <div id="sapori-gruppi" class="gruppi"></div>
-            <div id="sapori-evidenza" class="evidenza"></div>
-          </div>
-          <div id="sapori-foto"></div>
+          <div id="sapori-gruppi" class="gruppi"></div>
+          <blockquote id="sapori-evidenza" class="evidenza"></blockquote>
         </div>
+        <div class="rivela-media" id="sapori-media"></div>
       </div>
     </section>
 
     <!-- Eventi -->
     <section id="eventi" class="sezione">
       <div class="contenitore">
-        <header class="titolo-sezione">
-          <p class="occhiello">Durante l'anno</p>
+        <header class="titolo-sezione rivela">
+          <p class="etichetta">Durante l'anno</p>
           <h2>Eventi</h2>
-          <p id="eventi-intro" class="sottotitolo"></p>
         </header>
-        <div class="due-colonne">
-          <div id="eventi-elenco" class="eventi"></div>
-          <div id="eventi-foto"></div>
-        </div>
+        <div id="eventi-elenco" class="eventi"></div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="sezione sezione-chiara">
+    <section id="faq" class="sezione chiara">
       <div class="contenitore stretto">
-        <header class="titolo-sezione">
-          <p class="occhiello">Prima di partire</p>
+        <header class="titolo-sezione rivela">
+          <p class="etichetta">Prima di partire</p>
           <h2>Domande frequenti</h2>
         </header>
         <div id="faq-elenco" class="faq"></div>
@@ -145,7 +199,7 @@
 
     <!-- Orari e biglietti -->
     <section class="banda-orari">
-      <div class="contenitore">
+      <div class="contenitore rivela">
         <h2>Orari e biglietti</h2>
         <p>Prima della visita consulta il sito ufficiale per orari e prezzi aggiornati.</p>
         <a class="bottone chiaro link-orari" href="#" target="_blank" rel="noopener">Vai a orari e biglietti</a>
@@ -155,8 +209,11 @@
   </main>
 
   <footer class="piede">
-    <p>Sulmona · Valle Peligna · Abruzzo</p>
-    <p class="piccolo">© <span id="anno"></span></p>
+    <div id="nota-progetto" class="nota-progetto"></div>
+    <div class="piede-riga">
+      <p id="piede-titolo"></p>
+      <p>© <span id="anno"></span></p>
+    </div>
   </footer>
 
   <noscript><p class="noscript">Per visualizzare i contenuti di questa pagina è necessario attivare JavaScript.</p></noscript>

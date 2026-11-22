@@ -1,165 +1,122 @@
 /* ==========================================================
-   Sulmona – contenuti della pagina
-   Per modificare i testi basta intervenire su questo oggetto.
+   Sulmona – contenuti della landing page dell'itinerario
+   Per cambiare testi, foto o video basta modificare questo oggetto.
+
+   MEDIA: ogni riquadro ha questa forma
+     { tipo: "video" | "foto", file: "nome-file.mp4 o .jpg", poster: "immagine.jpg", didascalia: "..." }
+   - Se "file" è vuoto compare un segnaposto con la didascalia.
+   - Per i video "poster" è l'immagine mostrata finché il video non parte.
    ========================================================== */
 const CONTENUTI = {
-  intestazione: {
-    sopratitolo: "Abruzzo · Provincia dell'Aquila · Valle Peligna",
-    titolo: "Sulmona",
-    benvenuto:
-      "Benvenuti a Sulmona, la città di Ovidio e dei confetti, adagiata nel cuore della Valle Peligna, tra la Maiella e il Morrone.",
-    foto: {
-      file: "panorama-sulmona.jpg",
-      didascalia:
-        "Veduta di Sulmona nella Valle Peligna, con il Morrone sullo sfondo"
+  /* ---------- Apertura a tutto schermo ---------- */
+  apertura: {
+    citta: "Sulmona",
+    titoloItinerario: "Titolo dell'itinerario",           // ← da sostituire con il titolo della locandina
+    sottotitolo: "Un itinerario in 7 tappe nel cuore della Valle Peligna",
+    video: {
+      tipo: "video",
+      file: "",                                           // es. "apertura.mp4"
+      poster: "panorama-sulmona.jpg",
+      didascalia: "Veduta di Sulmona nella Valle Peligna, con il Morrone sullo sfondo"
     }
   },
 
+  /* ---------- Introduzione all'itinerario ---------- */
   introduzione:
-    "Sulmona è un'affascinante città nel cuore dell'Abruzzo, in provincia dell'Aquila, a ridosso del Parco Nazionale della Maiella. Sorge al centro della Valle Peligna, tra il torrente Vella e il fiume Gizio, ed è sovrastata dalle imponenti montagne della Maiella e del Morrone. Celebre nel mondo per aver dato i natali al poeta latino Ovidio e per la sua secolare tradizione nella produzione dei confetti, è anche sede vescovile della diocesi di Sulmona-Valva.",
+    "Sulmona sorge nel cuore dell'Abruzzo, al centro della Valle Peligna tra il torrente Vella e il fiume Gizio, sovrastata dalle montagne della Maiella e del Morrone. Celebre nel mondo per aver dato i natali al poeta latino Ovidio e per la sua secolare tradizione nella produzione dei confetti, è anche sede vescovile della diocesi di Sulmona-Valva.",
 
   inBreve: [
-    { etichetta: "Dove", valore: "Valle Peligna, tra il torrente Vella e il fiume Gizio" },
-    { etichetta: "Montagne", valore: "Maiella e Morrone" },
+    { etichetta: "Tappe", valore: "7" },
+    { etichetta: "Dove", valore: "Valle Peligna, Abruzzo" },
     { etichetta: "Famosa per", valore: "Ovidio e i confetti" },
-    { etichetta: "Natura", valore: "Sede amministrativa del Parco Nazionale della Maiella" }
+    { etichetta: "Natura", valore: "Parco Nazionale della Maiella" }
   ],
 
-  storia: [
+  /* ---------- Le tappe dell'itinerario ---------- */
+  tappe: [
     {
-      data: "III sec. a.C.",
-      titolo: "Capitale dei Peligni",
+      nome: "Statua di Ovidio",
+      luogo: "Piazza XX Settembre",
       testo:
-        "Sulmona era la capitale fortificata dei Peligni italici, situata in origine sulle alture del monte Mitra; si spostò nell'attuale posizione in età romana."
-    },
-    {
-      data: "81 a.C.",
-      titolo: "Distrutta da Silla",
-      testo:
-        "Con il nome di Sulmo era uno dei tre municipi peligni. Venne distrutta da Silla dopo una ribellione per l'applicazione della Lex Cornelia de Suffragiis."
-    },
-    {
-      data: "43 a.C.",
-      titolo: "Nasce Ovidio",
-      testo: "Nel municipio romano di Sulmo nasce il poeta latino Publio Ovidio Nasone."
-    },
-    {
-      data: "1233",
-      titolo: "Capitale con Federico II",
-      testo:
-        "In età sveva Federico II la nomina capitale del Giustizierato d'Abruzzo (1233-1273): la crescita demografica ed economica fa nascere nuovi borghi fuori dalle antiche mura, insieme a zecca e oreficeria."
-    },
-    {
-      data: "1302",
-      titolo: "Le nuove mura",
-      testo:
-        "Viene completato il nuovo perimetro murario settentrionale, con nuove porte: la città assume il caratteristico aspetto fusiforme che conserva ancora oggi."
-    },
-    {
-      data: "1443",
-      titolo: "I torrioni aragonesi",
-      testo:
-        "Sotto Alfonso I d'Aragona vengono edificati torrioni angolari con muratura a scarpa. Oggi resta visibile la torre presso Porta Iapasseri."
-    },
-    {
-      data: "1610 – 1656",
-      titolo: "I Borghese e la peste",
-      testo:
-        "Dopo il dominio cinquecentesco dei De Lannoy, la città passa con titolo principesco ai Borghese (1610). Nel 1656 una terribile peste e la mancanza di cavalieri portano alla sospensione dell'antica giostra cavalleresca."
-    },
-    {
-      data: "1706",
-      titolo: "Il terremoto",
-      testo:
-        "Un disastroso terremoto provoca la caduta di alcune porte cittadine. Le ricostruzioni successive inglobano tratti delle antiche mura nelle abitazioni."
-    },
-    {
-      data: "XX secolo",
-      titolo: "Medaglia d'Argento",
-      testo:
-        "Per la lotta partigiana nella Seconda Guerra Mondiale, Sulmona è decorata con la Medaglia d'Argento al Valor Militare."
-    },
-    {
-      data: "1995",
-      titolo: "Rinasce la Giostra",
-      testo:
-        "Dopo la sospensione seicentesca, torna la Giostra Cavalleresca di Sulmona."
-    }
-  ],
-
-  confetto: {
-    titolo: "Il confetto",
-    paragrafi: [
-      "La tradizione confettiera di Sulmona ha origini secolari. È legata alle monache clarisse, alle quali si devono raffinate composizioni decorative come fiori, spighe e grappoli, e ad antiche dinastie di maestri confettieri: Panfilo La Civita, attestato già nel 1698, e lo stabilimento della famiglia Pelino, documentato dal 1783.",
-      "Oggi il confetto sulmonese è un'eccellenza dell'artigianato locale, da ammirare attraverso dimostrazioni pratiche e degustazioni. È il simbolo per eccellenza delle celebrazioni della vita: dai battesimi ai matrimoni, fino a ogni grande ricorrenza."
-    ],
-    punti: [
-      { numero: "1698", testo: "Panfilo La Civita, maestro confettiere" },
-      { numero: "1783", testo: "Lo stabilimento della famiglia Pelino" }
-    ],
-    foto: {
-      file: "confetti-fiori.jpg",
-      didascalia: "Composizioni artistiche di confetti a forma di fiori"
-    }
-  },
-
-  cosaVedere: {
-    intro: "Sette tappe per conoscere Sulmona alla prima visita.",
-    tappe: [
-      {
-        nome: "Statua di Ovidio",
-        luogo: "Piazza XX Settembre",
-        testo:
-          "Inaugurata nel 1925 su progetto dello scultore Ettore Ferrari, raffigura in bronzo il celebre poeta latino nato a Sulmona, nell'atto pensoso di meditare.",
+        "Inaugurata nel 1925 su progetto dello scultore Ettore Ferrari, raffigura in bronzo il celebre poeta latino nato a Sulmona, nell'atto pensoso di meditare.",
+      media: {
+        tipo: "foto",
         file: "statua-ovidio.jpg",
         didascalia: "La statua in bronzo di Ovidio in Piazza XX Settembre"
-      },
-      {
-        nome: "Cattedrale di San Panfilo",
-        luogo: "Sede vescovile",
-        testo:
-          "È il principale luogo di culto della città e sede vescovile della diocesi di Sulmona-Valva. Custodisce un prezioso fonte battesimale marmoreo del XVIII secolo.",
-        didascalia: "La Cattedrale di San Panfilo"
-      },
-      {
-        nome: "Complesso della Santissima Annunziata",
-        luogo: "Musei civici",
-        testo:
-          "Fondato nel 1320 come ospedale per pellegrini, unisce la chiesa barocca al palazzo gotico-rinascimentale, sede dei musei civici, affiancato dal campanile più alto della città.",
+      }
+    },
+    {
+      nome: "Cattedrale di San Panfilo",
+      luogo: "Sede vescovile",
+      testo:
+        "È il principale luogo di culto della città e sede vescovile della diocesi di Sulmona-Valva. Custodisce un prezioso fonte battesimale marmoreo del XVIII secolo.",
+      media: {
+        tipo: "video",
+        file: "",
+        poster: "",
+        didascalia: "Video: la Cattedrale di San Panfilo e il fonte battesimale marmoreo"
+      }
+    },
+    {
+      nome: "Complesso della Santissima Annunziata",
+      luogo: "Musei civici",
+      testo:
+        "Fondato nel 1320 come ospedale per pellegrini, unisce la chiesa barocca al palazzo gotico-rinascimentale, sede dei musei civici, affiancato dal campanile più alto della città.",
+      media: {
+        tipo: "foto",
         file: "annunziata.jpg",
-        didascalia: "La facciata della chiesa barocca e del palazzo gotico-rinascimentale della Santissima Annunziata"
-      },
-      {
-        nome: "Piazza Garibaldi",
-        luogo: "Già “piazza del Mercato”",
-        testo:
-          "Chiamata “piazza del Mercato” fino al 1880, è la piazza principale di Sulmona, incorniciata dall'acquedotto medievale e teatro delle più importanti manifestazioni cittadine.",
+        didascalia: "La chiesa barocca e il palazzo gotico-rinascimentale della Santissima Annunziata"
+      }
+    },
+    {
+      nome: "Piazza Garibaldi",
+      luogo: "Già “piazza del Mercato”",
+      testo:
+        "Chiamata “piazza del Mercato” fino al 1880, è la piazza principale di Sulmona, incorniciata dall'acquedotto medievale e teatro delle più importanti manifestazioni cittadine.",
+      media: {
+        tipo: "foto",
         file: "acquedotto-piazza-garibaldi.jpg",
         didascalia: "Gli archi dell'acquedotto medievale in Piazza Garibaldi"
-      },
-      {
-        nome: "Monastero di Santa Chiara",
-        luogo: "Museo Diocesano",
-        testo:
-          "Risalente al 1269 e legato alla tradizione artistica dei confetti delle monache di clausura, ospita oggi il Museo Diocesano e il Polo Culturale Civico Diocesano.",
-        didascalia: "L'ex Monastero di Santa Chiara"
-      },
-      {
-        nome: "Antica Confetteria Del Corso",
-        luogo: "Bottega storica",
-        testo:
-          "Custode di una storia artigianale tramandata da oltre trecento anni a partire dal confettaro Panfilo La Civita, offre esperienze dedicate alla storia e alla lavorazione dei confetti e delle composizioni artistiche.",
+      }
+    },
+    {
+      nome: "Monastero di Santa Chiara",
+      luogo: "Museo Diocesano",
+      testo:
+        "Risalente al 1269 e legato alla tradizione artistica dei confetti delle monache di clausura, ospita oggi il Museo Diocesano e il Polo Culturale Civico Diocesano.",
+      media: {
+        tipo: "video",
+        file: "",
+        poster: "",
+        didascalia: "Video: l'ex Monastero di Santa Chiara"
+      }
+    },
+    {
+      nome: "Antica Confetteria Del Corso",
+      luogo: "Bottega storica",
+      testo:
+        "Custode di una storia artigianale tramandata da oltre trecento anni a partire dal confettaro Panfilo La Civita, offre esperienze dedicate alla storia e alla lavorazione dei confetti e delle composizioni artistiche.",
+      media: {
+        tipo: "foto",
         file: "confetti-lavorazione.jpg",
         didascalia: "La lavorazione a mano di un fiore di confetti"
-      },
-      {
-        nome: "Cimitero Monumentale",
-        luogo: "Luogo della memoria",
-        testo:
-          "Luogo simbolico della memoria collettiva cittadina, raccoglie monumenti funerari e architetture che raccontano la storia delle famiglie e della comunità sulmonese.",
-        didascalia: "Monumenti funerari del Cimitero Monumentale"
       }
-    ],
+    },
+    {
+      nome: "Cimitero Monumentale",
+      luogo: "Luogo della memoria",
+      testo:
+        "Luogo simbolico della memoria collettiva cittadina, raccoglie monumenti funerari e architetture che raccontano la storia delle famiglie e della comunità sulmonese.",
+      media: {
+        tipo: "video",
+        file: "",
+        poster: "",
+        didascalia: "Video: monumenti funerari e architetture del Cimitero Monumentale"
+      }
+    }
+  ],
+
+  prosegui: {
     ancheInCitta: [
       "Chiesa di Santa Maria della Tomba",
       "Teatro Comunale Maria Caniglia",
@@ -172,107 +129,102 @@ const CONTENUTI = {
     ]
   },
 
+  /* ---------- Info utili (da completare) ----------
+     Scrivi i testi al posto di "Da inserire". Le voci vuote non vengono mostrate. */
+  infoUtili: {
+    datiTecnici: [
+      { etichetta: "Lunghezza", valore: "Da inserire" },
+      { etichetta: "Durata", valore: "Da inserire" },
+      { etichetta: "Dislivello", valore: "Da inserire" },
+      { etichetta: "Difficoltà", valore: "Da inserire" },
+      { etichetta: "Fondo", valore: "Da inserire" },
+      { etichetta: "Partenza / arrivo", valore: "Da inserire" }
+    ],
+    accessibilita: {
+      titolo: "Itinerario accessibile",
+      testo: "Da inserire: informazioni su percorso, pendenze, gradini, bagni e punti di sosta accessibili."
+    },
+    abbigliamento: {
+      titolo: "Abbigliamento",
+      voci: ["Da inserire", "Da inserire", "Da inserire"]
+    },
+    escursione: {
+      titolo: "Escursione",
+      testo: "Da inserire: indicazioni pratiche sull'escursione."
+    },
+    portare: ["Da inserire", "Da inserire", "Da inserire"],
+    nonPortare: ["Da inserire", "Da inserire"]
+  },
+
+  /* ---------- Approfondimenti ---------- */
+  confetto: {
+    paragrafi: [
+      "La tradizione confettiera di Sulmona ha origini secolari. È legata alle monache clarisse, alle quali si devono raffinate composizioni decorative come fiori, spighe e grappoli, e ad antiche dinastie di maestri confettieri: Panfilo La Civita, attestato già nel 1698, e lo stabilimento della famiglia Pelino, documentato dal 1783.",
+      "Oggi il confetto sulmonese è un'eccellenza dell'artigianato locale, da ammirare attraverso dimostrazioni pratiche e degustazioni. È il simbolo per eccellenza delle celebrazioni della vita: dai battesimi ai matrimoni, fino a ogni grande ricorrenza."
+    ],
+    punti: [
+      { numero: "1698", testo: "Panfilo La Civita, maestro confettiere" },
+      { numero: "1783", testo: "Lo stabilimento della famiglia Pelino" }
+    ],
+    media: {
+      tipo: "foto",
+      file: "confetti-fiori.jpg",
+      didascalia: "Composizioni artistiche di confetti a forma di fiori"
+    }
+  },
+
+  storia: [
+    { data: "III sec. a.C.", titolo: "Capitale dei Peligni", testo: "Sulmona era la capitale fortificata dei Peligni italici, situata in origine sulle alture del monte Mitra; si spostò nell'attuale posizione in età romana." },
+    { data: "81 a.C.", titolo: "Distrutta da Silla", testo: "Con il nome di Sulmo era uno dei tre municipi peligni. Venne distrutta da Silla dopo una ribellione per l'applicazione della Lex Cornelia de Suffragiis." },
+    { data: "43 a.C.", titolo: "Nasce Ovidio", testo: "Nel municipio romano di Sulmo nasce il poeta latino Publio Ovidio Nasone." },
+    { data: "1233", titolo: "Capitale con Federico II", testo: "In età sveva Federico II la nomina capitale del Giustizierato d'Abruzzo (1233-1273): nascono nuovi borghi fuori dalle antiche mura, insieme a zecca e oreficeria." },
+    { data: "1302", titolo: "Le nuove mura", testo: "Viene completato il nuovo perimetro murario settentrionale, con nuove porte: la città assume il caratteristico aspetto fusiforme che conserva ancora oggi." },
+    { data: "1443", titolo: "I torrioni aragonesi", testo: "Sotto Alfonso I d'Aragona vengono edificati torrioni angolari con muratura a scarpa. Oggi resta visibile la torre presso Porta Iapasseri." },
+    { data: "1610 – 1656", titolo: "I Borghese e la peste", testo: "Dopo il dominio cinquecentesco dei De Lannoy, la città passa con titolo principesco ai Borghese (1610). Nel 1656 una terribile peste e la mancanza di cavalieri portano alla sospensione dell'antica giostra cavalleresca." },
+    { data: "1706", titolo: "Il terremoto", testo: "Un disastroso terremoto provoca la caduta di alcune porte cittadine. Le ricostruzioni successive inglobano tratti delle antiche mura nelle abitazioni." },
+    { data: "XX secolo", titolo: "Medaglia d'Argento", testo: "Per la lotta partigiana nella Seconda Guerra Mondiale, Sulmona è decorata con la Medaglia d'Argento al Valor Militare." },
+    { data: "1995", titolo: "Rinasce la Giostra", testo: "Dopo la sospensione seicentesca, torna la Giostra Cavalleresca di Sulmona." }
+  ],
+
   sapori: {
     intro:
-      "Il protagonista indiscusso è il confetto di Sulmona, in molte tipologie, composizioni artistiche (come fiori e bouquet) e lavorazioni artigianali. Ma la tavola sulmonese ha molto altro da offrire.",
+      "Il protagonista indiscusso è il confetto di Sulmona, in molte tipologie, composizioni artistiche e lavorazioni artigianali. Ma la tavola sulmonese ha molto altro da offrire.",
     gruppi: [
-      {
-        titolo: "In tavola",
-        voci: [
-          "Maccheroni alla chitarra con sugo d'agnello",
-          "Sagne e fagioli",
-          "Arrosticini"
-        ]
-      },
-      {
-        titolo: "Dolci della tradizione",
-        voci: [
-          "Torroni artigianali",
-          "Scarponi e ceci ripieni, tipici di Natale",
-          "Fiadoni al pecorino, immancabili a Pasqua",
-          "Cassata sulmonese: pan di Spagna, creme e croccante"
-        ]
-      },
-      {
-        titolo: "Prodotti del territorio",
-        voci: ["Aglio rosso di Sulmona", "Vini DOC della Valle Peligna"]
-      }
+      { titolo: "In tavola", voci: ["Maccheroni alla chitarra con sugo d'agnello", "Sagne e fagioli", "Arrosticini"] },
+      { titolo: "Dolci della tradizione", voci: ["Torroni artigianali", "Scarponi e ceci ripieni, a Natale", "Fiadoni al pecorino, a Pasqua", "Cassata sulmonese"] },
+      { titolo: "Dal territorio", voci: ["Aglio rosso di Sulmona", "Vini DOC della Valle Peligna"] }
     ],
-    evidenza: {
-      titolo: "La regina dei dolci",
-      testo:
-        "La cassata sulmonese è considerata la regina dei dolci locali, grazie al suo goloso incontro di pan di Spagna, creme e croccante."
-    },
-    foto: {
+    evidenza:
+      "La cassata sulmonese è considerata la regina dei dolci locali, grazie al suo goloso incontro di pan di Spagna, creme e croccante.",
+    media: {
+      tipo: "foto",
       file: "confetti-composizione.jpg",
       didascalia: "Un fiore di confetti con petali e foglie, composto a mano"
     }
   },
 
-  eventi: {
-    intro: "Un calendario di appuntamenti storici e tradizionali che animano la città.",
-    elenco: [
-      {
-        quando: "Settimana Santa",
-        nome: "Processione del Venerdì Santo e La Madonna che scappa",
-        testo:
-          "Le tradizioni pasquali culminano con la suggestiva Processione del Venerdì Santo e il celebre rito de La Madonna che scappa in piazza."
-      },
-      {
-        quando: "Inizio giugno",
-        nome: "La Cordesca",
-        testo:
-          "È la “Giostra” dedicata ai bambini, protagonisti assoluti di sfilate e gare: il futuro della tradizione cavalleresca cittadina."
-      },
-      {
-        quando: "Estate (fine luglio – inizio agosto)",
-        nome: "Giostra Cavalleresca di Sulmona",
-        testo:
-          "Rinata nel 1995 dopo la sospensione seicentesca, è una spettacolare sfilata storica seguita da un'emozionante gara tra cavalieri."
-      }
-    ],
-    foto: {
-      file: "",
-      didascalia: "Cavalieri in costume durante la Giostra Cavalleresca in Piazza Garibaldi"
-    }
-  },
-
-  faq: [
-    {
-      domanda: "Dove si trova Sulmona e qual è il suo contesto naturale?",
-      risposta:
-        "Sulmona sorge nel cuore dell'Abruzzo, al centro della Valle Peligna tra il torrente Vella e il fiume Gizio, ed è sovrastata dalle montagne della Maiella e del Morrone. È inoltre sede amministrativa del Parco Nazionale della Maiella, che offre numerose opportunità per l'escursionismo."
-    },
-    {
-      domanda: "Perché Sulmona è così famosa nel mondo?",
-      risposta:
-        "Soprattutto per aver dato i natali, nel 43 a.C., al poeta latino Publio Ovidio Nasone e per la sua secolare tradizione nella produzione artigianale dei confetti, legata sia al sapere delle monache clarisse nelle composizioni decorative sia alle storiche confetterie locali."
-    },
-    {
-      domanda: "Quali sono i principali monumenti da visitare?",
-      risposta:
-        "Nel centro storico spiccano la Cattedrale di San Panfilo, la Chiesa di Santa Maria della Tomba e il Complesso della Santissima Annunziata, che ospita i musei civici. Meritano una visita anche Piazza Garibaldi, la Statua di Ovidio, l'ex Monastero di Santa Chiara e il Teatro Comunale Maria Caniglia. Nei dintorni: la Badia Morronese, l'Eremo di Sant'Onofrio e il Santuario di Ercole Curino."
-    },
-    {
-      domanda: "Quali sono le tradizioni e gli eventi più importanti dell'anno?",
-      risposta:
-        "Le celebrazioni della Settimana Santa, con la Processione del Venerdì Santo e il rito de La Madonna che scappa in piazza. In estate la Giostra Cavalleresca di Sulmona, preceduta a giugno da La Cordesca dedicata ai bambini."
-    },
-    {
-      domanda: "Cosa assaggiare oltre ai confetti?",
-      risposta:
-        "Maccheroni alla chitarra con sugo d'agnello, sagne e fagioli e arrosticini, con l'aglio rosso di Sulmona e i vini DOC della Valle Peligna. Tra i dolci: torroni artigianali, scarponi, ceci ripieni, fiadoni pasquali e la celebre cassata sulmonese."
-    },
-    {
-      domanda: "Dove trovo orari e biglietti?",
-      risposta: "Orari e biglietti sono disponibili sul sito ufficiale:",
-      link: true
-    }
+  eventi: [
+    { quando: "Settimana Santa", nome: "La Madonna che scappa", testo: "Le tradizioni pasquali culminano con la suggestiva Processione del Venerdì Santo e il celebre rito de La Madonna che scappa in piazza." },
+    { quando: "Inizio giugno", nome: "La Cordesca", testo: "La “Giostra” dedicata ai bambini, protagonisti assoluti di sfilate e gare: il futuro della tradizione cavalleresca cittadina." },
+    { quando: "Fine luglio – inizio agosto", nome: "Giostra Cavalleresca", testo: "Rinata nel 1995 dopo la sospensione seicentesca, è una spettacolare sfilata storica seguita da un'emozionante gara tra cavalieri." }
   ],
 
-  orariBiglietti: {
-    etichetta: "Orari e biglietti",
-    url: "https://www.fortezzacivitella.it"
+  faq: [
+    { domanda: "Dove si trova Sulmona e qual è il suo contesto naturale?", risposta: "Sulmona sorge nel cuore dell'Abruzzo, al centro della Valle Peligna tra il torrente Vella e il fiume Gizio, ed è sovrastata dalle montagne della Maiella e del Morrone. È inoltre sede amministrativa del Parco Nazionale della Maiella, che offre numerose opportunità per l'escursionismo." },
+    { domanda: "Perché Sulmona è così famosa nel mondo?", risposta: "Soprattutto per aver dato i natali, nel 43 a.C., al poeta latino Publio Ovidio Nasone e per la sua secolare tradizione nella produzione artigianale dei confetti, legata sia al sapere delle monache clarisse sia alle storiche confetterie locali." },
+    { domanda: "Quali altri luoghi meritano una visita?", risposta: "Oltre alle tappe dell'itinerario: la Chiesa di Santa Maria della Tomba e il Teatro Comunale Maria Caniglia. Nei dintorni: la Badia Morronese, l'Eremo di Sant'Onofrio e il Santuario di Ercole Curino." },
+    { domanda: "Quali sono gli eventi più importanti dell'anno?", risposta: "Le celebrazioni della Settimana Santa, con la Processione del Venerdì Santo e La Madonna che scappa in piazza. In estate la Giostra Cavalleresca di Sulmona, preceduta a giugno da La Cordesca dedicata ai bambini." },
+    { domanda: "Cosa assaggiare oltre ai confetti?", risposta: "Maccheroni alla chitarra con sugo d'agnello, sagne e fagioli e arrosticini, con l'aglio rosso di Sulmona e i vini DOC della Valle Peligna. Tra i dolci: torroni, scarponi, ceci ripieni, fiadoni e la cassata sulmonese." },
+    { domanda: "Dove trovo orari e biglietti?", risposta: "Orari e biglietti sono disponibili sul sito ufficiale:", link: true }
+  ],
+
+  orariBiglietti: { url: "https://www.fortezzacivitella.it" },
+
+  /* ---------- Nota sul progetto ---------- */
+  notaProgetto: {
+    testo: "Questa pagina è un progetto didattico realizzato per un esame universitario e non è un sito ufficiale.",
+    dettaglio: "",          // es. "Corso di … – Università di …" (facoltativo)
+    crediti: "Foto e video: tutti i diritti riservati all'autore."
   }
 };
 
@@ -280,111 +232,170 @@ const CONTENUTI = {
    Costruzione della pagina
    ========================================================== */
 (function () {
-  const $ = (sel) => document.querySelector(sel);
+  const $ = (s) => document.querySelector(s);
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-  // Foto: se "file" è valorizzato mostra l'immagine, altrimenti un riquadro segnaposto
-  function foto(f, classe = "") {
-    if (f.file) {
-      return `<figure class="foto ${classe}"><img src="${esc(f.file)}" alt="${esc(f.didascalia)}" loading="lazy"><figcaption>${esc(f.didascalia)}</figcaption></figure>`;
-    }
-    return `<figure class="foto segnaposto ${classe}" role="img" aria-label="Segnaposto foto: ${esc(f.didascalia)}">
-      <div class="segnaposto-area"><span class="segnaposto-icona" aria-hidden="true"></span><span class="segnaposto-etichetta">Foto</span></div>
-      <figcaption>${esc(f.didascalia)}</figcaption></figure>`;
-  }
-
+  const pad = (n) => String(n).padStart(2, "0");
   const C = CONTENUTI;
   const ob = C.orariBiglietti;
+  const ridotto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Intestazione
-  $("#sopratitolo").textContent = C.intestazione.sopratitolo;
-  $("#titolo").textContent = C.intestazione.titolo;
-  $("#benvenuto").textContent = C.intestazione.benvenuto;
-  $("#foto-hero").innerHTML = foto(C.intestazione.foto, "foto-hero");
-  document.querySelectorAll(".link-orari").forEach((a) => (a.href = ob.url));
+  /* Riquadro media: video, foto o segnaposto */
+  function media(m, extra = "") {
+    const did = esc(m.didascalia || "");
+    if (m.tipo === "video" && m.file) {
+      return `<figure class="media ${extra}">
+        <video class="auto" muted loop playsinline preload="metadata" ${m.poster ? `poster="${esc(m.poster)}"` : ""} aria-label="${did}">
+          <source src="${esc(m.file)}" type="video/mp4">
+        </video><figcaption>${did}</figcaption></figure>`;
+    }
+    if (m.file) {
+      return `<figure class="media ${extra}"><img src="${esc(m.file)}" alt="${did}" loading="lazy"><figcaption>${did}</figcaption></figure>`;
+    }
+    const etichetta = m.tipo === "video" ? "Video" : "Foto";
+    return `<figure class="media segnaposto ${m.tipo === "video" ? "is-video" : ""} ${extra}" role="img" aria-label="Segnaposto: ${did}">
+      <div class="segnaposto-area"><span class="segnaposto-icona" aria-hidden="true"></span><span class="segnaposto-etichetta">${etichetta}</span></div>
+      <figcaption>${did}</figcaption></figure>`;
+  }
 
-  // Introduzione
+  /* ---------- Apertura ---------- */
+  const ap = C.apertura;
+  $("#ap-citta").innerHTML = [...ap.citta].map((l, i) => `<span style="--i:${i}">${esc(l)}</span>`).join("");
+  $("#ap-titolo").textContent = ap.titoloItinerario;
+  $("#ap-sottotitolo").textContent = ap.sottotitolo;
+  document.title = `${ap.citta} – ${ap.titoloItinerario}`;
+  const fondo = $("#ap-fondo");
+  if (ap.video.file) {
+    fondo.innerHTML = `<video autoplay muted loop playsinline ${ap.video.poster ? `poster="${esc(ap.video.poster)}"` : ""} aria-label="${esc(ap.video.didascalia)}"><source src="${esc(ap.video.file)}" type="video/mp4"></video>`;
+  } else if (ap.video.poster) {
+    fondo.innerHTML = `<img class="kenburns" src="${esc(ap.video.poster)}" alt="${esc(ap.video.didascalia)}">`;
+  }
+
+  /* ---------- Introduzione ---------- */
   $("#intro-testo").textContent = C.introduzione;
   $("#in-breve").innerHTML = C.inBreve
-    .map((i) => `<div><dt>${esc(i.etichetta)}</dt><dd>${esc(i.valore)}</dd></div>`)
+    .map((i) => `<div><dt>${esc(i.etichetta)}</dt><dd>${esc(i.valore)}</dd></div>`).join("");
+
+  /* ---------- Indice delle tappe ---------- */
+  $("#indice").innerHTML = C.tappe
+    .map((t, i) => `<li><a href="#tappa-${i + 1}"><span class="n">${pad(i + 1)}</span><span class="t">${esc(t.nome)}</span><span class="freccia" aria-hidden="true">→</span></a></li>`)
     .join("");
 
-  // Storia
-  $("#timeline").innerHTML = C.storia
-    .map(
-      (t) => `<li class="tappa-storia">
-        <span class="data">${esc(t.data)}</span>
-        <div class="contenuto"><h3>${esc(t.titolo)}</h3><p>${esc(t.testo)}</p></div>
-      </li>`
-    )
+  /* ---------- Tappe ---------- */
+  const tot = C.tappe.length;
+  $("#tappe").innerHTML = C.tappe
+    .map((t, i) => `<article class="capitolo ${i % 2 ? "inverso" : ""}" id="tappa-${i + 1}" data-n="${i + 1}" data-nome="${esc(t.nome)}">
+        <div class="capitolo-media rivela-media">${media(t.media)}</div>
+        <div class="capitolo-testo rivela">
+          <p class="capitolo-num"><span>${pad(i + 1)}</span><span class="di">/ ${pad(tot)}</span></p>
+          <p class="etichetta">${esc(t.luogo)}</p>
+          <h3>${esc(t.nome)}</h3>
+          <p>${esc(t.testo)}</p>
+          ${i < tot - 1 ? `<a class="prossima" href="#tappa-${i + 2}">Tappa successiva <span aria-hidden="true">↓</span></a>` : `<a class="prossima" href="#approfondisci">Approfondisci <span aria-hidden="true">↓</span></a>`}
+        </div>
+      </article>`)
     .join("");
+  $("#anche-citta").innerHTML = C.prosegui.ancheInCitta.map((x) => `<li>${esc(x)}</li>`).join("");
+  $("#dintorni").innerHTML = C.prosegui.neiDintorni.map((x) => `<li>${esc(x)}</li>`).join("");
 
-  // Confetto
+  /* ---------- Info utili ---------- */
+  const iu = C.infoUtili;
+  const pieno = (x) => x && String(x).trim() !== "";
+  const da = (x) => /^da inserire/i.test(String(x).trim());
+  const voce = (x) => `<li class="${da(x) ? "da-inserire" : ""}">${esc(x)}</li>`;
+  $("#dati-tecnici").innerHTML = iu.datiTecnici.filter((d) => pieno(d.valore))
+    .map((d) => `<div><dt>${esc(d.etichetta)}</dt><dd class="${da(d.valore) ? "da-inserire" : ""}">${esc(d.valore)}</dd></div>`).join("");
+  $("#info-accessibile").innerHTML = `<p class="etichetta">${esc(iu.accessibilita.titolo)}</p><p class="${da(iu.accessibilita.testo) ? "da-inserire" : ""}">${esc(iu.accessibilita.testo)}</p>`;
+  $("#info-abbigliamento").innerHTML = `<p class="etichetta">${esc(iu.abbigliamento.titolo)}</p><ul>${iu.abbigliamento.voci.filter(pieno).map(voce).join("")}</ul>`;
+  $("#info-escursione").innerHTML = `<p class="etichetta">${esc(iu.escursione.titolo)}</p><p class="${da(iu.escursione.testo) ? "da-inserire" : ""}">${esc(iu.escursione.testo)}</p>`;
+  $("#info-portare").innerHTML = iu.portare.filter(pieno).map(voce).join("");
+  $("#info-non-portare").innerHTML = iu.nonPortare.filter(pieno).map(voce).join("");
+
+  /* ---------- Approfondimenti ---------- */
   $("#confetto-testo").innerHTML = C.confetto.paragrafi.map((p) => `<p>${esc(p)}</p>`).join("");
   $("#confetto-punti").innerHTML = C.confetto.punti
-    .map((p) => `<li><strong>${esc(p.numero)}</strong><span>${esc(p.testo)}</span></li>`)
-    .join("");
-  $("#confetto-foto").innerHTML = foto(C.confetto.foto);
+    .map((p) => `<li><strong>${esc(p.numero)}</strong><span>${esc(p.testo)}</span></li>`).join("");
+  $("#confetto-media").innerHTML = media(C.confetto.media);
 
-  // Cosa vedere
-  $("#vedere-intro").textContent = C.cosaVedere.intro;
-  $("#tappe").innerHTML = C.cosaVedere.tappe
-    .map(
-      (t, i) => `<article class="card-tappa">
-        ${foto({ file: t.file || "", didascalia: t.didascalia })}
-        <div class="card-corpo">
-          <span class="numero">${String(i + 1).padStart(2, "0")}</span>
-          <h3>${esc(t.nome)}</h3>
-          <p class="luogo">${esc(t.luogo)}</p>
-          <p>${esc(t.testo)}</p>
-        </div>
-      </article>`
-    )
-    .join("");
-  $("#anche-citta").innerHTML = C.cosaVedere.ancheInCitta.map((x) => `<li>${esc(x)}</li>`).join("");
-  $("#dintorni").innerHTML = C.cosaVedere.neiDintorni.map((x) => `<li>${esc(x)}</li>`).join("");
+  $("#timeline").innerHTML = C.storia
+    .map((t) => `<li class="rivela"><span class="data">${esc(t.data)}</span><div><h4>${esc(t.titolo)}</h4><p>${esc(t.testo)}</p></div></li>`).join("");
 
-  // Sapori
   $("#sapori-intro").textContent = C.sapori.intro;
   $("#sapori-gruppi").innerHTML = C.sapori.gruppi
-    .map((g) => `<div class="gruppo"><h3>${esc(g.titolo)}</h3><ul>${g.voci.map((v) => `<li>${esc(v)}</li>`).join("")}</ul></div>`)
-    .join("");
-  $("#sapori-evidenza").innerHTML = `<h3>${esc(C.sapori.evidenza.titolo)}</h3><p>${esc(C.sapori.evidenza.testo)}</p>`;
-  $("#sapori-foto").innerHTML = foto(C.sapori.foto);
+    .map((g) => `<div class="gruppo"><p class="etichetta">${esc(g.titolo)}</p><ul>${g.voci.map((v) => `<li>${esc(v)}</li>`).join("")}</ul></div>`).join("");
+  $("#sapori-evidenza").textContent = C.sapori.evidenza;
+  $("#sapori-media").innerHTML = media(C.sapori.media);
 
-  // Eventi
-  $("#eventi-intro").textContent = C.eventi.intro;
-  $("#eventi-elenco").innerHTML = C.eventi.elenco
-    .map(
-      (e) => `<article class="evento"><p class="quando">${esc(e.quando)}</p><h3>${esc(e.nome)}</h3><p>${esc(e.testo)}</p></article>`
-    )
-    .join("");
-  $("#eventi-foto").innerHTML = foto(C.eventi.foto);
+  $("#eventi-elenco").innerHTML = C.eventi
+    .map((e) => `<article class="evento rivela"><p class="etichetta">${esc(e.quando)}</p><h4>${esc(e.nome)}</h4><p>${esc(e.testo)}</p></article>`).join("");
 
-  // FAQ
   $("#faq-elenco").innerHTML = C.faq
-    .map(
-      (f) => `<details><summary>${esc(f.domanda)}</summary><div class="risposta"><p>${esc(f.risposta)}${
-        f.link ? ` <a href="${esc(ob.url)}" target="_blank" rel="noopener">${esc(ob.url.replace(/^https?:\/\//, ""))}</a>` : ""
-      }</p></div></details>`
-    )
-    .join("");
+    .map((f) => `<details><summary>${esc(f.domanda)}</summary><div class="risposta"><p>${esc(f.risposta)}${
+      f.link ? ` <a href="${esc(ob.url)}" target="_blank" rel="noopener">${esc(ob.url.replace(/^https?:\/\//, ""))}</a>` : ""}</p></div></details>`).join("");
 
-  // Anno nel piè di pagina
-  $("#anno").textContent = new Date().getFullYear();
+  document.querySelectorAll(".link-orari").forEach((a) => (a.href = ob.url));
+  $("#piede-titolo").textContent = `${ap.citta} · ${ap.titoloItinerario}`;
 
-  // Menu mobile
-  const btn = $("#menu-btn");
-  const nav = $("#nav");
+  /* ---------- Menu ---------- */
+  const btn = $("#menu-btn"), menu = $("#menu");
+  $("#menu-tappe").innerHTML = C.tappe.map((t, i) => `<li><a href="#tappa-${i + 1}"><span>${pad(i + 1)}</span>${esc(t.nome)}</a></li>`).join("");
+  const chiudi = () => { menu.classList.remove("aperto"); btn.setAttribute("aria-expanded", "false"); document.body.classList.remove("bloccato"); };
   btn.addEventListener("click", () => {
-    const aperto = nav.classList.toggle("aperto");
+    const aperto = menu.classList.toggle("aperto");
     btn.setAttribute("aria-expanded", aperto);
+    document.body.classList.toggle("bloccato", aperto);
   });
-  nav.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => {
-      nav.classList.remove("aperto");
-      btn.setAttribute("aria-expanded", "false");
-    })
-  );
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", chiudi));
+
+  /* ---------- Barra: diventa piena dopo l'apertura ---------- */
+  const barra = $("#barra");
+  const suScroll = () => barra.classList.toggle("piena", window.scrollY > window.innerHeight * 0.6);
+  window.addEventListener("scroll", suScroll, { passive: true }); suScroll();
+
+  /* ---------- Comparsa allo scorrimento ---------- */
+  const daRivelare = document.querySelectorAll(".rivela, .rivela-media");
+  if (ridotto || !("IntersectionObserver" in window)) {
+    daRivelare.forEach((el) => el.classList.add("visibile"));
+  } else {
+    const io = new IntersectionObserver((voci) => voci.forEach((v) => {
+      if (v.isIntersecting) { v.target.classList.add("visibile"); io.unobserve(v.target); }
+    }), { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    daRivelare.forEach((el) => io.observe(el));
+  }
+
+  /* ---------- Video: partono solo quando sono sullo schermo ---------- */
+  const video = document.querySelectorAll("video.auto");
+  if ("IntersectionObserver" in window) {
+    const iv = new IntersectionObserver((voci) => voci.forEach((v) => {
+      if (v.isIntersecting && !ridotto) v.target.play().catch(() => {}); else v.target.pause();
+    }), { threshold: 0.25 });
+    video.forEach((v) => iv.observe(v));
+  }
+
+  /* ---------- Indicatore della tappa corrente ---------- */
+  const ind = $("#progresso"), indN = $("#progresso-n"), indNome = $("#progresso-nome"), linea = $("#progresso-linea");
+  const capitoli = document.querySelectorAll(".capitolo");
+  if ("IntersectionObserver" in window) {
+    const ic = new IntersectionObserver((voci) => voci.forEach((v) => {
+      if (v.isIntersecting) {
+        const n = +v.target.dataset.n;
+        indN.textContent = `${pad(n)} / ${pad(tot)}`;
+        indNome.textContent = v.target.dataset.nome;
+        linea.style.transform = `scaleX(${n / tot})`;
+      }
+    }), { rootMargin: "-45% 0px -45% 0px" });
+    capitoli.forEach((c) => ic.observe(c));
+  }
+  const sezTappe = $("#itinerario");
+  const mostraInd = () => {
+    const r = sezTappe.getBoundingClientRect();
+    ind.classList.toggle("attivo", r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.5);
+  };
+  window.addEventListener("scroll", mostraInd, { passive: true }); mostraInd();
+
+  const np = C.notaProgetto;
+  $("#nota-progetto").innerHTML = [np.testo, np.dettaglio, np.crediti].filter((x) => x && x.trim())
+    .map((x) => `<p>${esc(x)}</p>`).join("");
+  $("#menu-nota").textContent = np.testo;
+  $("#anno").textContent = new Date().getFullYear();
 })();
