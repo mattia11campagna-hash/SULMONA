@@ -32,6 +32,7 @@
       <div>
         <p class="etichetta">Scopri</p>
         <ul class="menu-link">
+          <li><a href="#percorso">Il percorso in breve</a></li>
           <li><a href="#info">Info utili</a></li>
           <li><a href="#confetto">Il confetto</a></li>
           <li><a href="#storia">Storia</a></li>
@@ -39,7 +40,7 @@
           <li><a href="#eventi">Eventi</a></li>
           <li><a href="#faq">Domande frequenti</a></li>
         </ul>
-        <a class="bottone scuro link-orari" href="#" target="_blank" rel="noopener">Orari e biglietti</a>
+        <a class="bottone scuro link-maps" href="#" target="_blank" rel="noopener">Apri in Google Maps</a>
         <p id="menu-nota" class="menu-nota"></p>
       </div>
     </div>
@@ -76,11 +77,24 @@
       <div class="contenitore">
         <p class="etichetta rivela">Benvenuti</p>
         <p id="intro-testo" class="intro-testo rivela"></p>
-        <dl id="in-breve" class="in-breve rivela"></dl>
       </div>
-      <div class="contenitore indice-blocco">
-        <p class="etichetta rivela">Le tappe</p>
-        <ol id="indice" class="indice rivela"></ol>
+    </section>
+
+    <!-- ============ L'ITINERARIO IN BREVE ============ -->
+    <section id="percorso" class="percorso">
+      <div class="contenitore">
+        <header class="titolo-sezione rivela">
+          <p class="etichetta">Il percorso</p>
+          <h2>L'itinerario<br>in breve</h2>
+        </header>
+        <dl id="percorso-dati" class="percorso-dati rivela"></dl>
+        <div class="percorso-corpo">
+          <ol id="percorso-lista" class="percorso-lista rivela"></ol>
+          <div class="percorso-lato rivela">
+            <div id="percorso-mappa" class="percorso-mappa"></div>
+            <a class="bottone scuro link-maps" href="#" target="_blank" rel="noopener">Apri il percorso in Google Maps</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -107,8 +121,6 @@
           <p class="etichetta">Prima di partire</p>
           <h2>Info utili</h2>
         </header>
-
-        <dl id="dati-tecnici" class="dati-tecnici rivela"></dl>
 
         <div class="info-griglia">
           <div id="info-accessibile" class="info-blocco accessibile rivela"></div>
@@ -197,12 +209,13 @@
       </div>
     </section>
 
-    <!-- Orari e biglietti -->
+    <!-- Chiusura: si parte -->
     <section class="banda-orari">
       <div class="contenitore rivela">
-        <h2>Orari e biglietti</h2>
-        <p>Prima della visita consulta il sito ufficiale per orari e prezzi aggiornati.</p>
-        <a class="bottone chiaro link-orari" href="#" target="_blank" rel="noopener">Vai a orari e biglietti</a>
+        <h2>Pronti a partire?</h2>
+        <p>Segui il percorso a piedi direttamente dal telefono.</p>
+        <a class="bottone chiaro link-maps" href="#" target="_blank" rel="noopener">Apri il percorso in Google Maps</a>
+        <a class="link-sotto" href="#percorso">Rivedi l'itinerario in breve</a>
       </div>
     </section>
 

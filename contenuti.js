@@ -25,18 +25,35 @@ const CONTENUTI = {
   introduzione:
     "Sulmona sorge nel cuore dell'Abruzzo, al centro della Valle Peligna tra il torrente Vella e il fiume Gizio, sovrastata dalle montagne della Maiella e del Morrone. Celebre nel mondo per aver dato i natali al poeta latino Ovidio e per la sua secolare tradizione nella produzione dei confetti, è anche sede vescovile della diocesi di Sulmona-Valva.",
 
-  inBreve: [
-    { etichetta: "Tappe", valore: "7" },
-    { etichetta: "Dove", valore: "Valle Peligna, Abruzzo" },
-    { etichetta: "Famosa per", valore: "Ovidio e i confetti" },
-    { etichetta: "Natura", valore: "Parco Nazionale della Maiella" }
-  ],
+  /* ---------- L'itinerario in breve (da completare) ----------
+     Scrivi i dati al posto di "Da inserire". */
+  percorso: {
+    dati: [
+      { etichetta: "Tappe", valore: "7" },
+      { etichetta: "Lunghezza", valore: "Da inserire" },
+      { etichetta: "Durata", valore: "Da inserire" },
+      { etichetta: "Dislivello", valore: "Da inserire" },
+      { etichetta: "Difficoltà", valore: "Da inserire" },
+      { etichetta: "Fondo", valore: "Da inserire" }
+    ],
+    partenza: { luogo: "Da inserire", nota: "" },
+    arrivo: { luogo: "Da inserire", nota: "", tempo: "Da inserire", distanza: "Da inserire" }, // tempo/distanza dall'ultima tappa
+    mapsUrl: "",            // link al percorso a piedi su Google Maps
+    mappa: {
+      tipo: "foto",
+      file: "",             // es. "mappa.jpg" – mappa disegnata dall'autore
+      didascalia: "Mappa del percorso"
+    }
+  },
 
   /* ---------- Le tappe dell'itinerario ---------- */
   tappe: [
     {
       nome: "Statua di Ovidio",
       luogo: "Piazza XX Settembre",
+      tempo: "Da inserire",        // a piedi dal punto precedente
+      distanza: "Da inserire",
+      orari: null,                  // link a orari e biglietti (null se non servono)
       testo:
         "Inaugurata nel 1925 su progetto dello scultore Ettore Ferrari, raffigura in bronzo il celebre poeta latino nato a Sulmona, nell'atto pensoso di meditare.",
       media: {
@@ -48,6 +65,9 @@ const CONTENUTI = {
     {
       nome: "Cattedrale di San Panfilo",
       luogo: "Sede vescovile",
+      tempo: "Da inserire",        // a piedi dal punto precedente
+      distanza: "Da inserire",
+      orari: null,                  // link a orari e biglietti (null se non servono)
       testo:
         "È il principale luogo di culto della città e sede vescovile della diocesi di Sulmona-Valva. Custodisce un prezioso fonte battesimale marmoreo del XVIII secolo.",
       media: {
@@ -60,6 +80,9 @@ const CONTENUTI = {
     {
       nome: "Complesso della Santissima Annunziata",
       luogo: "Musei civici",
+      tempo: "Da inserire",        // a piedi dal punto precedente
+      distanza: "Da inserire",
+      orari: { url: "" },                  // link a orari e biglietti (null se non servono)
       testo:
         "Fondato nel 1320 come ospedale per pellegrini, unisce la chiesa barocca al palazzo gotico-rinascimentale, sede dei musei civici, affiancato dal campanile più alto della città.",
       media: {
@@ -71,6 +94,9 @@ const CONTENUTI = {
     {
       nome: "Piazza Garibaldi",
       luogo: "Già “piazza del Mercato”",
+      tempo: "Da inserire",        // a piedi dal punto precedente
+      distanza: "Da inserire",
+      orari: null,                  // link a orari e biglietti (null se non servono)
       testo:
         "Chiamata “piazza del Mercato” fino al 1880, è la piazza principale di Sulmona, incorniciata dall'acquedotto medievale e teatro delle più importanti manifestazioni cittadine.",
       media: {
@@ -82,6 +108,9 @@ const CONTENUTI = {
     {
       nome: "Monastero di Santa Chiara",
       luogo: "Museo Diocesano",
+      tempo: "Da inserire",        // a piedi dal punto precedente
+      distanza: "Da inserire",
+      orari: { url: "" },                  // link a orari e biglietti (null se non servono)
       testo:
         "Risalente al 1269 e legato alla tradizione artistica dei confetti delle monache di clausura, ospita oggi il Museo Diocesano e il Polo Culturale Civico Diocesano.",
       media: {
@@ -94,6 +123,9 @@ const CONTENUTI = {
     {
       nome: "Antica Confetteria Del Corso",
       luogo: "Bottega storica",
+      tempo: "Da inserire",        // a piedi dal punto precedente
+      distanza: "Da inserire",
+      orari: { url: "" },                  // link a orari e biglietti (null se non servono)
       testo:
         "Custode di una storia artigianale tramandata da oltre trecento anni a partire dal confettaro Panfilo La Civita, offre esperienze dedicate alla storia e alla lavorazione dei confetti e delle composizioni artistiche.",
       media: {
@@ -105,6 +137,9 @@ const CONTENUTI = {
     {
       nome: "Cimitero Monumentale",
       luogo: "Luogo della memoria",
+      tempo: "Da inserire",        // a piedi dal punto precedente
+      distanza: "Da inserire",
+      orari: null,                  // link a orari e biglietti (null se non servono)
       testo:
         "Luogo simbolico della memoria collettiva cittadina, raccoglie monumenti funerari e architetture che raccontano la storia delle famiglie e della comunità sulmonese.",
       media: {
@@ -132,14 +167,6 @@ const CONTENUTI = {
   /* ---------- Info utili (da completare) ----------
      Scrivi i testi al posto di "Da inserire". Le voci vuote non vengono mostrate. */
   infoUtili: {
-    datiTecnici: [
-      { etichetta: "Lunghezza", valore: "Da inserire" },
-      { etichetta: "Durata", valore: "Da inserire" },
-      { etichetta: "Dislivello", valore: "Da inserire" },
-      { etichetta: "Difficoltà", valore: "Da inserire" },
-      { etichetta: "Fondo", valore: "Da inserire" },
-      { etichetta: "Partenza / arrivo", valore: "Da inserire" }
-    ],
     accessibilita: {
       titolo: "Itinerario accessibile",
       testo: "Da inserire: informazioni su percorso, pendenze, gradini, bagni e punti di sosta accessibili."
@@ -215,10 +242,8 @@ const CONTENUTI = {
     { domanda: "Quali altri luoghi meritano una visita?", risposta: "Oltre alle tappe dell'itinerario: la Chiesa di Santa Maria della Tomba e il Teatro Comunale Maria Caniglia. Nei dintorni: la Badia Morronese, l'Eremo di Sant'Onofrio e il Santuario di Ercole Curino." },
     { domanda: "Quali sono gli eventi più importanti dell'anno?", risposta: "Le celebrazioni della Settimana Santa, con la Processione del Venerdì Santo e La Madonna che scappa in piazza. In estate la Giostra Cavalleresca di Sulmona, preceduta a giugno da La Cordesca dedicata ai bambini." },
     { domanda: "Cosa assaggiare oltre ai confetti?", risposta: "Maccheroni alla chitarra con sugo d'agnello, sagne e fagioli e arrosticini, con l'aglio rosso di Sulmona e i vini DOC della Valle Peligna. Tra i dolci: torroni, scarponi, ceci ripieni, fiadoni e la cassata sulmonese." },
-    { domanda: "Dove trovo orari e biglietti?", risposta: "Orari e biglietti sono disponibili sul sito ufficiale:", link: true }
+    { domanda: "Dove trovo orari e biglietti?", risposta: "Nel percorso, accanto alle tappe che li prevedono, trovi il link a orari e biglietti.", link: true }
   ],
-
-  orariBiglietti: { url: "https://www.fortezzacivitella.it" },
 
   /* ---------- Nota sul progetto ---------- */
   notaProgetto: {
@@ -237,7 +262,6 @@ const CONTENUTI = {
     String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const pad = (n) => String(n).padStart(2, "0");
   const C = CONTENUTI;
-  const ob = C.orariBiglietti;
   const ridotto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* Riquadro media: video, foto o segnaposto */
@@ -273,13 +297,35 @@ const CONTENUTI = {
 
   /* ---------- Introduzione ---------- */
   $("#intro-testo").textContent = C.introduzione;
-  $("#in-breve").innerHTML = C.inBreve
-    .map((i) => `<div><dt>${esc(i.etichetta)}</dt><dd>${esc(i.valore)}</dd></div>`).join("");
 
-  /* ---------- Indice delle tappe ---------- */
-  $("#indice").innerHTML = C.tappe
-    .map((t, i) => `<li><a href="#tappa-${i + 1}"><span class="n">${pad(i + 1)}</span><span class="t">${esc(t.nome)}</span><span class="freccia" aria-hidden="true">→</span></a></li>`)
-    .join("");
+  /* ---------- L'itinerario in breve ---------- */
+  const P = C.percorso;
+  const pieno = (x) => x != null && String(x).trim() !== "";
+  const da = (x) => /^da inserire/i.test(String(x).trim());
+  const val = (x) => `<span class="${da(x) ? "da-inserire" : ""}">${esc(x)}</span>`;
+  const tratto = (tempo, dist) => {
+    const parti = [tempo, dist].filter(pieno);
+    return parti.length ? `<li class="tratto"><span class="tratto-freccia" aria-hidden="true">↓</span>${parti.map(val).join(" · ")}</li>` : "";
+  };
+  const linkOrari = (o, cls = "") => {
+    if (!o) return "";
+    return o.url
+      ? `<a class="orari ${cls}" href="${esc(o.url)}" target="_blank" rel="noopener">Orari e biglietti ↗</a>`
+      : `<span class="orari da-inserire ${cls}">Orari: link da inserire</span>`;
+  };
+  $("#percorso-dati").innerHTML = P.dati.filter((d) => pieno(d.valore))
+    .map((d) => `<div><dt>${esc(d.etichetta)}</dt><dd>${val(d.valore)}</dd></div>`).join("");
+  $("#percorso-lista").innerHTML =
+    `<li class="estremo"><span class="etichetta-mini">Partenza</span><span class="luogo-estremo">${val(P.partenza.luogo)}</span>${pieno(P.partenza.nota) ? `<span class="nota">${esc(P.partenza.nota)}</span>` : ""}</li>` +
+    C.tappe.map((t, i) => tratto(t.tempo, t.distanza) +
+      `<li class="fermata"><a href="#tappa-${i + 1}"><span class="n">${pad(i + 1)}</span><span class="t">${esc(t.nome)}</span></a>${linkOrari(t.orari)}</li>`).join("") +
+    tratto(P.arrivo.tempo, P.arrivo.distanza) +
+    `<li class="estremo"><span class="etichetta-mini">Arrivo</span><span class="luogo-estremo">${val(P.arrivo.luogo)}</span>${pieno(P.arrivo.nota) ? `<span class="nota">${esc(P.arrivo.nota)}</span>` : ""}</li>`;
+  document.querySelectorAll(".link-maps").forEach((a) => {
+    if (P.mapsUrl) { a.href = P.mapsUrl; }
+    else { a.removeAttribute("href"); a.classList.add("disattivo"); a.textContent = "Link Google Maps da inserire"; }
+  });
+  $("#percorso-mappa").innerHTML = media(P.mappa);
 
   /* ---------- Tappe ---------- */
   const tot = C.tappe.length;
@@ -291,6 +337,7 @@ const CONTENUTI = {
           <p class="etichetta">${esc(t.luogo)}</p>
           <h3>${esc(t.nome)}</h3>
           <p>${esc(t.testo)}</p>
+          ${linkOrari(t.orari, "in-capitolo")}
           ${i < tot - 1 ? `<a class="prossima" href="#tappa-${i + 2}">Tappa successiva <span aria-hidden="true">↓</span></a>` : `<a class="prossima" href="#approfondisci">Approfondisci <span aria-hidden="true">↓</span></a>`}
         </div>
       </article>`)
@@ -300,11 +347,7 @@ const CONTENUTI = {
 
   /* ---------- Info utili ---------- */
   const iu = C.infoUtili;
-  const pieno = (x) => x && String(x).trim() !== "";
-  const da = (x) => /^da inserire/i.test(String(x).trim());
   const voce = (x) => `<li class="${da(x) ? "da-inserire" : ""}">${esc(x)}</li>`;
-  $("#dati-tecnici").innerHTML = iu.datiTecnici.filter((d) => pieno(d.valore))
-    .map((d) => `<div><dt>${esc(d.etichetta)}</dt><dd class="${da(d.valore) ? "da-inserire" : ""}">${esc(d.valore)}</dd></div>`).join("");
   $("#info-accessibile").innerHTML = `<p class="etichetta">${esc(iu.accessibilita.titolo)}</p><p class="${da(iu.accessibilita.testo) ? "da-inserire" : ""}">${esc(iu.accessibilita.testo)}</p>`;
   $("#info-abbigliamento").innerHTML = `<p class="etichetta">${esc(iu.abbigliamento.titolo)}</p><ul>${iu.abbigliamento.voci.filter(pieno).map(voce).join("")}</ul>`;
   $("#info-escursione").innerHTML = `<p class="etichetta">${esc(iu.escursione.titolo)}</p><p class="${da(iu.escursione.testo) ? "da-inserire" : ""}">${esc(iu.escursione.testo)}</p>`;
@@ -331,9 +374,8 @@ const CONTENUTI = {
 
   $("#faq-elenco").innerHTML = C.faq
     .map((f) => `<details><summary>${esc(f.domanda)}</summary><div class="risposta"><p>${esc(f.risposta)}${
-      f.link ? ` <a href="${esc(ob.url)}" target="_blank" rel="noopener">${esc(ob.url.replace(/^https?:\/\//, ""))}</a>` : ""}</p></div></details>`).join("");
+      f.link ? ` <a href="#percorso">Vai al percorso</a>` : ""}</p></div></details>`).join("");
 
-  document.querySelectorAll(".link-orari").forEach((a) => (a.href = ob.url));
   $("#piede-titolo").textContent = `${ap.citta} · ${ap.titoloItinerario}`;
 
   /* ---------- Menu ---------- */
