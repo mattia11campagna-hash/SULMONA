@@ -36,9 +36,9 @@ const CONTENUTI = {
       { etichetta: "Difficoltà", valore: "Da inserire" },
       { etichetta: "Fondo", valore: "Da inserire" }
     ],
-    partenza: { luogo: "Da inserire", nota: "" },
-    arrivo: { luogo: "Da inserire", nota: "", tempo: "Da inserire", distanza: "Da inserire" }, // tempo/distanza dall'ultima tappa
-    mapsUrl: "",            // link al percorso a piedi su Google Maps
+    partenza: { luogo: "Viale Roosevelt, 3", nota: "" },
+    arrivo: { luogo: "Cimitero Monumentale", nota: "", tempo: "", distanza: "" }, // l'arrivo coincide con l'ultima tappa
+    mapsUrl: "https://www.google.com/maps/dir/Viale+Roosevelt,+3,+67039+Sulmona+AQ/Statua+di+Ovidio,+Piazza+20+Settembre,+67039+Sulmona+AQ/Cattedrale+di+San+Panfilo,+Viale+Giacomo+Matteotti,+67039+Sulmona+AQ/Complesso+della+Santissima+Annunziata,+Corso+Ovidio,+231,+67039+Sulmona+AQ/Piazza+Garibaldi,+67039+Sulmona+AQ/Uscita+Pedonale+Parcheggio+Coperto+%22Santa+Chiara%22,+Piazza+Giuseppe+Garibaldi,+54,+67039+Sulmona+AQ/Corso+Ovidio,+183,+67039+Sulmona+AQ/Cimitero,+SR487,+1,+67039+Sulmona+AQ/@42.0442478,13.9273916,14.54z/data=!4m52!4m51!1m5!1m1!1s0x1330407d9662c013:0xca50ff0332d1d1f3!2m2!1d13.9220628!2d42.05086!1m5!1m1!1s0x1330407ce600cf33:0xeff0533ba4649be4!2m2!1d13.92421!2d42.0486735!1m5!1m1!1s0x1330408732fe3e7f:0x9e8afeacabeee3af!2m2!1d13.9205357!2d42.0537816!1m5!1m1!1s0x1330407cdb09997f:0x70dc9b48714c9a28!2m2!1d13.9234808!2d42.049282!1m5!1m1!1s0x1330406334e777e7:0x66b0b7778e4832f3!2m2!1d13.9260939!2d42.0479678!1m5!1m1!1s0x13304100695212ef:0xf119497e88f70a77!2m2!1d13.926524!2d42.0477082!1m5!1m1!1s0x1330407cc6fffa3f:0x64213d84da32b34e!2m2!1d13.9249979!2d42.0481114!1m5!1m1!1s0x133041abef70a13f:0x3e2297018dffcd06!2m2!1d13.9434707!2d42.0355781!2m1!10b1!3e2",
     mappa: {
       tipo: "foto",
       file: "",             // es. "mappa.jpg" – mappa disegnata dall'autore
@@ -257,7 +257,8 @@ const CONTENUTI = {
    Costruzione della pagina
    ========================================================== */
 (function () {
-  const $ = (s) => document.querySelector(s);
+  // Se un elemento manca, non blocca il resto della pagina
+  const $ = (s) => document.querySelector(s) || document.createElement("div");
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const pad = (n) => String(n).padStart(2, "0");
@@ -318,9 +319,11 @@ const CONTENUTI = {
   $("#percorso-lista").innerHTML =
     `<li class="estremo"><span class="etichetta-mini">Partenza</span><span class="luogo-estremo">${val(P.partenza.luogo)}</span>${pieno(P.partenza.nota) ? `<span class="nota">${esc(P.partenza.nota)}</span>` : ""}</li>` +
     C.tappe.map((t, i) => tratto(t.tempo, t.distanza) +
-      `<li class="fermata"><a href="#tappa-${i + 1}"><span class="n">${pad(i + 1)}</span><span class="t">${esc(t.nome)}</span></a>${linkOrari(t.orari)}</li>`).join("") +
-    tratto(P.arrivo.tempo, P.arrivo.distanza) +
-    `<li class="estremo"><span class="etichetta-mini">Arrivo</span><span class="luogo-estremo">${val(P.arrivo.luogo)}</span>${pieno(P.arrivo.nota) ? `<span class="nota">${esc(P.arrivo.nota)}</span>` : ""}</li>`;
+      `<li class="fermata ${i === C.tappe.length - 1 && P.arrivo.luogo === t.nome ? "ultima" : ""}">${i === C.tappe.length - 1 && P.arrivo.luogo === t.nome ? `<span class="etichetta-mini arrivo-mini">Arrivo</span>` : ""}<a href="#tappa-${i + 1}"><span class="n">${pad(i + 1)}</span><span class="t">${esc(t.nome)}</span></a>${linkOrari(t.orari)}</li>`).join("") +
+    (P.arrivo.luogo === C.tappe[C.tappe.length - 1].nome
+      ? "" // l'arrivo coincide con l'ultima tappa: niente riga doppia
+      : tratto(P.arrivo.tempo, P.arrivo.distanza) +
+        `<li class="estremo"><span class="etichetta-mini">Arrivo</span><span class="luogo-estremo">${val(P.arrivo.luogo)}</span>${pieno(P.arrivo.nota) ? `<span class="nota">${esc(P.arrivo.nota)}</span>` : ""}</li>`);
   document.querySelectorAll(".link-maps").forEach((a) => {
     if (P.mapsUrl) { a.href = P.mapsUrl; }
     else { a.removeAttribute("href"); a.classList.add("disattivo"); a.textContent = "Link Google Maps da inserire"; }
