@@ -36,20 +36,17 @@ const CONTENUTI = {
       { etichetta: "Difficoltà", valore: "Da inserire" },
       { etichetta: "Fondo", valore: "Da inserire" }
     ],
-    partenza: { luogo: "Viale Roosevelt, 3", nota: "" },
+    partenza: { luogo: "Viale Roosevelt, 3", nota: "", pos: [42.05086, 13.9220628] },
     arrivo: { luogo: "Cimitero Monumentale", nota: "", tempo: "", distanza: "" }, // l'arrivo coincide con l'ultima tappa
+    // percorso completo (sul telefono Google apre solo alcune tappe intermedie)
     mapsUrl: "https://www.google.com/maps/dir/Viale+Roosevelt,+3,+67039+Sulmona+AQ/Statua+di+Ovidio,+Piazza+20+Settembre,+67039+Sulmona+AQ/Cattedrale+di+San+Panfilo,+Viale+Giacomo+Matteotti,+67039+Sulmona+AQ/Complesso+della+Santissima+Annunziata,+Corso+Ovidio,+231,+67039+Sulmona+AQ/Piazza+Garibaldi,+67039+Sulmona+AQ/Uscita+Pedonale+Parcheggio+Coperto+%22Santa+Chiara%22,+Piazza+Giuseppe+Garibaldi,+54,+67039+Sulmona+AQ/Corso+Ovidio,+183,+67039+Sulmona+AQ/Cimitero,+SR487,+1,+67039+Sulmona+AQ/@42.0442478,13.9273916,14.54z/data=!4m52!4m51!1m5!1m1!1s0x1330407d9662c013:0xca50ff0332d1d1f3!2m2!1d13.9220628!2d42.05086!1m5!1m1!1s0x1330407ce600cf33:0xeff0533ba4649be4!2m2!1d13.92421!2d42.0486735!1m5!1m1!1s0x1330408732fe3e7f:0x9e8afeacabeee3af!2m2!1d13.9205357!2d42.0537816!1m5!1m1!1s0x1330407cdb09997f:0x70dc9b48714c9a28!2m2!1d13.9234808!2d42.049282!1m5!1m1!1s0x1330406334e777e7:0x66b0b7778e4832f3!2m2!1d13.9260939!2d42.0479678!1m5!1m1!1s0x13304100695212ef:0xf119497e88f70a77!2m2!1d13.926524!2d42.0477082!1m5!1m1!1s0x1330407cc6fffa3f:0x64213d84da32b34e!2m2!1d13.9249979!2d42.0481114!1m5!1m1!1s0x133041abef70a13f:0x3e2297018dffcd06!2m2!1d13.9434707!2d42.0355781!2m1!10b1!3e2",
-    mappa: {
-      tipo: "foto",
-      file: "",             // es. "mappa.jpg" – mappa disegnata dall'autore
-      didascalia: "Mappa del percorso"
-    }
   },
 
   /* ---------- Le tappe dell'itinerario ---------- */
   tappe: [
     {
       nome: "Statua di Ovidio",
+      pos: [42.0486735, 13.92421],            // coordinate sulla mappa
       luogo: "Piazza XX Settembre",
       tempo: "Da inserire",        // a piedi dal punto precedente
       distanza: "Da inserire",
@@ -64,6 +61,7 @@ const CONTENUTI = {
     },
     {
       nome: "Cattedrale di San Panfilo",
+      pos: [42.0537816, 13.9205357],            // coordinate sulla mappa
       luogo: "Sede vescovile",
       tempo: "Da inserire",        // a piedi dal punto precedente
       distanza: "Da inserire",
@@ -79,6 +77,7 @@ const CONTENUTI = {
     },
     {
       nome: "Complesso della Santissima Annunziata",
+      pos: [42.049282, 13.9234808],            // coordinate sulla mappa
       luogo: "Musei civici",
       tempo: "Da inserire",        // a piedi dal punto precedente
       distanza: "Da inserire",
@@ -93,6 +92,7 @@ const CONTENUTI = {
     },
     {
       nome: "Piazza Garibaldi",
+      pos: [42.0479678, 13.9260939],            // coordinate sulla mappa
       luogo: "Già “piazza del Mercato”",
       tempo: "Da inserire",        // a piedi dal punto precedente
       distanza: "Da inserire",
@@ -107,6 +107,7 @@ const CONTENUTI = {
     },
     {
       nome: "Monastero di Santa Chiara",
+      pos: [42.0477082, 13.926524],            // coordinate sulla mappa
       luogo: "Museo Diocesano",
       tempo: "Da inserire",        // a piedi dal punto precedente
       distanza: "Da inserire",
@@ -122,6 +123,7 @@ const CONTENUTI = {
     },
     {
       nome: "Antica Confetteria Del Corso",
+      pos: [42.0481114, 13.9249979],            // coordinate sulla mappa
       luogo: "Bottega storica",
       tempo: "Da inserire",        // a piedi dal punto precedente
       distanza: "Da inserire",
@@ -136,6 +138,7 @@ const CONTENUTI = {
     },
     {
       nome: "Cimitero Monumentale",
+      pos: [42.0355781, 13.9434707],            // coordinate sulla mappa
       luogo: "Luogo della memoria",
       tempo: "Da inserire",        // a piedi dal punto precedente
       distanza: "Da inserire",
@@ -197,23 +200,6 @@ const CONTENUTI = {
       tipo: "foto",
       file: "confetti-fiori.jpg",
       didascalia: "Composizioni artistiche di confetti a forma di fiori"
-    }
-  },
-
-  sapori: {
-    intro:
-      "Il protagonista indiscusso è il confetto di Sulmona, in molte tipologie, composizioni artistiche e lavorazioni artigianali. Ma la tavola sulmonese ha molto altro da offrire.",
-    gruppi: [
-      { titolo: "In tavola", voci: ["Maccheroni alla chitarra con sugo d'agnello", "Sagne e fagioli", "Arrosticini"] },
-      { titolo: "Dolci della tradizione", voci: ["Torroni artigianali", "Scarponi e ceci ripieni, a Natale", "Fiadoni al pecorino, a Pasqua", "Cassata sulmonese"] },
-      { titolo: "Dal territorio", voci: ["Aglio rosso di Sulmona", "Vini DOC della Valle Peligna"] }
-    ],
-    evidenza:
-      "La cassata sulmonese è considerata la regina dei dolci locali, grazie al suo goloso incontro di pan di Spagna, creme e croccante.",
-    media: {
-      tipo: "foto",
-      file: "confetti-composizione.jpg",
-      didascalia: "Un fiore di confetti con petali e foglie, composto a mano"
     }
   },
 
@@ -301,12 +287,15 @@ const CONTENUTI = {
       ? `<a class="orari ${cls}" href="${esc(o.url)}" target="_blank" rel="noopener">Orari e biglietti ↗</a>`
       : `<span class="orari da-inserire ${cls}">Orari: link da inserire</span>`;
   };
+  const portami = (t, cls = "") => t.pos
+    ? `<a class="portami ${cls}" href="https://www.google.com/maps/dir/?api=1&destination=${t.pos.join(",")}&travelmode=walking" target="_blank" rel="noopener">Portami qui ↗</a>`
+    : "";
   $("#percorso-dati").innerHTML = P.dati.filter((d) => pieno(d.valore))
     .map((d) => `<div><dt>${esc(d.etichetta)}</dt><dd>${val(d.valore)}</dd></div>`).join("");
   $("#percorso-lista").innerHTML =
     `<li class="estremo"><span class="etichetta-mini">Partenza</span><span class="luogo-estremo">${val(P.partenza.luogo)}</span>${pieno(P.partenza.nota) ? `<span class="nota">${esc(P.partenza.nota)}</span>` : ""}</li>` +
     C.tappe.map((t, i) => tratto(t.tempo, t.distanza) +
-      `<li class="fermata ${i === C.tappe.length - 1 && P.arrivo.luogo === t.nome ? "ultima" : ""}">${i === C.tappe.length - 1 && P.arrivo.luogo === t.nome ? `<span class="etichetta-mini arrivo-mini">Arrivo</span>` : ""}<a href="#tappa-${i + 1}"><span class="n">${pad(i + 1)}</span><span class="t">${esc(t.nome)}</span></a>${linkOrari(t.orari)}</li>`).join("") +
+      `<li class="fermata ${i === C.tappe.length - 1 && P.arrivo.luogo === t.nome ? "ultima" : ""}">${i === C.tappe.length - 1 && P.arrivo.luogo === t.nome ? `<span class="etichetta-mini arrivo-mini">Arrivo</span>` : ""}<a href="#tappa-${i + 1}"><span class="n">${pad(i + 1)}</span><span class="t">${esc(t.nome)}</span></a><span class="azioni">${portami(t)}${linkOrari(t.orari)}</span></li>`).join("") +
     (P.arrivo.luogo === C.tappe[C.tappe.length - 1].nome
       ? "" // l'arrivo coincide con l'ultima tappa: niente riga doppia
       : tratto(P.arrivo.tempo, P.arrivo.distanza) +
@@ -315,7 +304,6 @@ const CONTENUTI = {
     if (P.mapsUrl) { a.href = P.mapsUrl; }
     else { a.removeAttribute("href"); a.classList.add("disattivo"); a.textContent = "Link Google Maps da inserire"; }
   });
-  $("#percorso-mappa").innerHTML = media(P.mappa);
 
   /* ---------- Tappe ---------- */
   const tot = C.tappe.length;
@@ -327,7 +315,7 @@ const CONTENUTI = {
           <p class="etichetta">${esc(t.luogo)}</p>
           <h3>${esc(t.nome)}</h3>
           <p>${esc(t.testo)}</p>
-          ${linkOrari(t.orari, "in-capitolo")}
+          <p class="azioni-capitolo">${portami(t)}${linkOrari(t.orari)}</p>
           ${i < tot - 1 ? `<a class="prossima" href="#tappa-${i + 2}">Tappa successiva <span aria-hidden="true">↓</span></a>` : `<a class="prossima" href="#approfondisci">Approfondisci <span aria-hidden="true">↓</span></a>`}
         </div>
       </article>`)
@@ -350,12 +338,6 @@ const CONTENUTI = {
     .map((p) => `<li><strong>${esc(p.numero)}</strong><span>${esc(p.testo)}</span></li>`).join("");
   $("#confetto-media").innerHTML = media(C.confetto.media);
 
-  $("#sapori-intro").textContent = C.sapori.intro;
-  $("#sapori-gruppi").innerHTML = C.sapori.gruppi
-    .map((g) => `<div class="gruppo"><p class="etichetta">${esc(g.titolo)}</p><ul>${g.voci.map((v) => `<li>${esc(v)}</li>`).join("")}</ul></div>`).join("");
-  $("#sapori-evidenza").textContent = C.sapori.evidenza;
-  $("#sapori-media").innerHTML = media(C.sapori.media);
-
   $("#eventi-elenco").innerHTML = C.eventi
     .map((e) => `<article class="evento rivela"><p class="etichetta">${esc(e.quando)}</p><h4>${esc(e.nome)}</h4><p>${esc(e.testo)}</p></article>`).join("");
 
@@ -364,6 +346,57 @@ const CONTENUTI = {
       f.link ? ` <a href="#percorso">Vai al percorso</a>` : ""}</p></div></details>`).join("");
 
   $("#piede-titolo").textContent = `${ap.citta} · ${ap.titoloItinerario}`;
+
+  /* ---------- Mappa interattiva ---------- */
+  const box = document.getElementById("mappa");
+  if (box && window.L) {
+    const mobile = window.matchMedia("(pointer: coarse)").matches;
+    const mappa = L.map(box, { scrollWheelZoom: false, dragging: !mobile, tap: false, zoomControl: true, attributionControl: true });
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      maxZoom: 19, subdomains: "abcd",
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    }).addTo(mappa);
+    const lato = window.innerWidth < 820 ? 24 : 30;
+    const icona = (testo, cls) => L.divIcon({ className: "pin " + cls, html: `<span>${testo}</span>`, iconSize: [lato, lato], iconAnchor: [lato / 2, lato / 2], popupAnchor: [0, -lato / 2 - 1] });
+    const punti = [];
+    if (P.partenza.pos) {
+      punti.push(P.partenza.pos);
+      L.marker(P.partenza.pos, { icon: icona("P", "pin-partenza"), title: "Partenza" }).addTo(mappa)
+        .bindPopup(`<p class="pop-et">Partenza</p><p class="pop-t">${esc(P.partenza.luogo)}</p>${portami(P.partenza, "pop-link")}`);
+    }
+    C.tappe.forEach((t, i) => {
+      if (!t.pos) return;
+      punti.push(t.pos);
+      L.marker(t.pos, { icon: icona(pad(i + 1), i === C.tappe.length - 1 ? "pin-arrivo" : ""), title: t.nome }).addTo(mappa)
+        .bindPopup(`<p class="pop-et">Tappa ${pad(i + 1)}</p><p class="pop-t">${esc(t.nome)}</p><a class="pop-link" href="#tappa-${i + 1}">Leggi la tappa ↓</a>${portami(t, "pop-link")}`);
+    });
+    L.polyline(punti, { color: "#0e0e0e", weight: 1.5, dashArray: "4 6", opacity: .8 }).addTo(mappa);
+    // Vista iniziale sul centro storico; un pulsante mostra anche le tappe più lontane
+    const lontano = (a, b) => mappa.distance(a, b) > 1000;
+    const centro = punti.filter((pt) => !lontano(pt, punti[1] || punti[0]));
+    const vistaCentro = () => mappa.fitBounds(L.latLngBounds(centro), { padding: [40, 40], maxZoom: 17 });
+    const vistaTutto = () => mappa.fitBounds(L.latLngBounds(punti), { padding: [36, 36] });
+    vistaCentro();
+    if (centro.length < punti.length) {
+      const Ctrl = L.Control.extend({
+        onAdd() {
+          const b = L.DomUtil.create("button", "mappa-vista");
+          b.type = "button"; b.textContent = "Tutto il percorso";
+          let tutto = false;
+          L.DomEvent.disableClickPropagation(b);
+          b.addEventListener("click", () => {
+            tutto = !tutto; tutto ? vistaTutto() : vistaCentro();
+            b.textContent = tutto ? "Centro storico" : "Tutto il percorso";
+          });
+          return b;
+        }
+      });
+      new Ctrl({ position: "topright" }).addTo(mappa);
+    }
+    box.addEventListener("click", (e) => { if (e.target.matches(".pop-link[href^='#']")) mappa.closePopup(); });
+  } else if (box) {
+    box.innerHTML = '<p class="mappa-assente">La mappa non è disponibile: usa il pulsante qui sotto per aprire il percorso in Google Maps.</p>';
+  }
 
   /* ---------- Menu ---------- */
   const btn = $("#menu-btn"), menu = $("#menu");

@@ -232,13 +232,52 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
   font-weight: 500; color: var(--nero); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem;
 }
 .orari.da-inserire { border-bottom-style: dashed; }
-.orari.in-capitolo { margin: .5rem 0 0; display: table; }
 .tratto { padding: .35rem 0 .35rem 2.6rem; font-size: .85rem; color: var(--tenue); }
 .tratto-freccia { position: absolute; left: calc(-2.25rem + 2px); background: var(--carta); font-size: .8rem; line-height: 1.4; color: var(--nero); }
 .percorso-lato { position: sticky; top: calc(var(--barra) + 2rem); display: grid; gap: .75rem; }
 .percorso-mappa { margin-bottom: .75rem; }
-.percorso-mappa .segnaposto-area, .percorso-mappa img { aspect-ratio: 4 / 5; }
+
 .link-maps { text-align: center; }
+
+/* Mappa interattiva */
+.percorso-mappa { margin: 0 0 .75rem; }
+.percorso-mappa figcaption { font-size: .75rem; color: var(--tenue); margin-top: .7rem; line-height: 1.5; }
+.mappa { width: 100%; aspect-ratio: 4 / 5; background: #ecebe7; border: 1px solid var(--linea); z-index: 0; }
+.mappa-assente { padding: 2rem; font-size: .9rem; color: var(--tenue); }
+.leaflet-container { font-family: var(--sans); }
+.leaflet-tile-pane { filter: grayscale(1) contrast(.95); }
+.pin span {
+  display: grid; place-items: center; width: 30px; height: 30px; background: var(--bianco); border: 1px solid var(--nero);
+  font: 500 .68rem/1 var(--sans); letter-spacing: .06em; color: var(--nero); transition: background .2s, color .2s;
+}
+.pin:hover span { background: var(--nero); color: var(--bianco); }
+.pin-partenza span, .pin-arrivo span { background: var(--nero); color: var(--bianco); }
+.pin-arrivo span { background: var(--accento); border-color: var(--accento); }
+.leaflet-popup-content-wrapper { border-radius: 0; box-shadow: 0 6px 24px rgba(0,0,0,.12); padding: 0; }
+.leaflet-popup-content { margin: 1rem 1.1rem; min-width: 170px; }
+.leaflet-popup-tip { box-shadow: none; }
+.leaflet-container a.leaflet-popup-close-button { color: var(--nero); }
+.pop-et { margin: 0 0 .2rem !important; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; color: var(--accento); }
+.pop-t { margin: 0 0 .6rem !important; font-family: var(--serif); font-size: 1.2rem; line-height: 1.2; color: var(--nero); }
+.leaflet-container a.pop-link { display: block; margin-top: .35rem; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; color: var(--nero); text-decoration: none; }
+.leaflet-container a.pop-link:hover { color: var(--accento); }
+.leaflet-bar a { border-radius: 0 !important; color: var(--nero); }
+.mappa-vista {
+  background: var(--bianco); border: 1px solid var(--nero); padding: .55rem .8rem; cursor: pointer;
+  font: 500 .62rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--nero);
+}
+.mappa-vista:hover { background: var(--nero); color: var(--bianco); }
+.leaflet-bar { border-radius: 0 !important; border: 1px solid var(--nero) !important; box-shadow: none !important; }
+
+/* Link "Portami qui" e orari */
+.azioni { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; margin: .45rem 0 0 2.6rem; }
+.azioni .orari { margin: 0; }
+.portami {
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500;
+  color: var(--accento); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem;
+}
+.azioni-capitolo { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 1.25rem 0 0 !important; }
+.azioni-capitolo .orari { margin: 0; }
 .link-maps.disattivo { opacity: .45; pointer-events: none; font-style: italic; }
 .link-sotto { display: block; margin-top: 1.5rem; color: rgba(255,255,255,.75); font-size: .85rem; }
 
@@ -331,7 +370,7 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .continua-testa { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
 .continua-testa h3 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 .continua-su { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; text-decoration: none; border-bottom: 1px solid; padding-bottom: .15rem; }
-.continua-griglia { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--linea); border: 1px solid var(--linea); }
+.continua-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linea); border: 1px solid var(--linea); }
 .continua-griglia a {
   background: var(--carta); padding: 1.5rem 1.25rem 1.25rem; min-height: 150px; text-decoration: none;
   display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; transition: background .3s, color .3s;
@@ -358,16 +397,6 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .punti li + li { padding-left: 1.25rem; border-left: 1px solid var(--linea); }
 .punti strong { font-family: var(--serif); font-weight: 300; font-size: 3.2rem; color: var(--accento); line-height: 1; }
 .punti span { font-size: .9rem; }
-
-/* ---------- Sapori ---------- */
-.gruppi { display: grid; gap: 2.5rem; margin-top: 3rem; }
-.gruppo .etichetta { margin-bottom: .8rem; }
-.gruppo ul { border-top: 1px solid var(--nero); }
-.gruppo li { padding: .8rem 0; border-bottom: 1px solid var(--linea); font-family: var(--serif); font-size: 1.3rem; color: var(--nero); }
-.evidenza {
-  margin: 3rem 0 0; padding-left: 1.5rem; border-left: 1px solid var(--accento);
-  font-family: var(--serif); font-style: italic; font-size: 1.4rem; line-height: 1.4; color: var(--nero);
-}
 
 /* ---------- Eventi ---------- */
 .eventi { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--nero); }
@@ -432,7 +461,8 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
   .percorso-dati div:first-child dd { font-size: 2.4rem; }
   .percorso-corpo { grid-template-columns: 1fr; gap: 3rem; }
   .percorso-lato { position: static; }
-  .percorso-mappa .segnaposto-area, .percorso-mappa img { aspect-ratio: 4 / 3; }
+  .mappa { aspect-ratio: 3 / 4; }
+  .pin span { width: 24px; height: 24px; font-size: .6rem; }
 
   /* Tappe: media a tutta larghezza sopra il testo */
   .capitolo, .capitolo.inverso {
@@ -456,7 +486,7 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
   .eventi { grid-template-columns: 1fr; }
   .evento, .evento + .evento { padding: 1.75rem 0; border-left: 0; border-bottom: 1px solid var(--linea); }
   .info-griglia { grid-template-columns: 1fr; gap: 2.5rem; }
-  .continua-griglia { grid-template-columns: 1fr 1fr; }
+  .continua-griglia { grid-template-columns: 1fr; }
   .continua-griglia a { min-height: 120px; }
   .porta { grid-template-columns: 1fr; }
   .porta > div + div { padding: 2.5rem 0 0; border-left: 0; }

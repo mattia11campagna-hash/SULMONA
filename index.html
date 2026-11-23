@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="leaflet.css">
+  <link rel="stylesheet" href="style.css?v=9">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -36,7 +37,6 @@
           <li><a href="#percorso">Il percorso in breve</a></li>
           <li><a href="#info">Info utili</a></li>
           <li><a href="#confetto">Il confetto</a></li>
-          <li><a href="#sapori">Sapori</a></li>
           <li><a href="#eventi">Eventi</a></li>
           <li><a href="#faq">Domande frequenti</a></li>
         </ul>
@@ -91,8 +91,11 @@
         <div class="percorso-corpo">
           <ol id="percorso-lista" class="percorso-lista rivela"></ol>
           <div class="percorso-lato rivela">
-            <div id="percorso-mappa" class="percorso-mappa"></div>
-            <a class="bottone scuro link-maps" href="#" target="_blank" rel="noopener">Apri il percorso in Google Maps</a>
+            <figure class="percorso-mappa">
+              <div id="mappa" class="mappa" role="region" aria-label="Mappa delle tappe"></div>
+              <figcaption>Tocca un numero per vedere la tappa. La linea tratteggiata indica l'ordine delle tappe, non il tragitto a piedi.</figcaption>
+            </figure>
+            <a class="bottone scuro link-maps" href="#" target="_blank" rel="noopener">Percorso completo in Google Maps</a>
             <a class="bottone contorno" href="#info">Info utili <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -149,7 +152,6 @@
           <nav class="continua-griglia" aria-label="Altre sezioni">
             <a href="#tappa-1"><span class="n">01 — 07</span><span class="t">Le tappe <span aria-hidden="true">↓</span></span></a>
             <a href="#confetto"><span class="n">Il simbolo</span><span class="t">Il confetto <span aria-hidden="true">↓</span></span></a>
-            <a href="#sapori"><span class="n">A tavola</span><span class="t">Sapori <span aria-hidden="true">↓</span></span></a>
             <a href="#eventi"><span class="n">Durante l'anno</span><span class="t">Eventi e FAQ <span aria-hidden="true">↓</span></span></a>
           </nav>
           <a class="scendi" href="#approfondisci"><span>Scorri per continuare</span><span class="scorri-linea"></span></a>
@@ -175,20 +177,6 @@
           <div id="confetto-testo" class="testo"></div>
           <ul id="confetto-punti" class="punti"></ul>
         </div>
-      </div>
-    </section>
-
-    <!-- Sapori -->
-    <section id="sapori" class="sezione chiara">
-      <div class="contenitore due-colonne">
-        <div class="rivela">
-          <p class="etichetta">A tavola</p>
-          <h2>Sapori</h2>
-          <p id="sapori-intro" class="sottotitolo"></p>
-          <div id="sapori-gruppi" class="gruppi"></div>
-          <blockquote id="sapori-evidenza" class="evidenza"></blockquote>
-        </div>
-        <div class="rivela-media" id="sapori-media"></div>
       </div>
     </section>
 
@@ -235,6 +223,7 @@
   </footer>
 
   <noscript><p class="noscript">Per visualizzare i contenuti di questa pagina è necessario attivare JavaScript.</p></noscript>
-  <script src="contenuti.js?v=7"></script>
+  <script src="leaflet.js"></script>
+  <script src="contenuti.js?v=9"></script>
 </body>
 </html>
