@@ -300,7 +300,20 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .testo { margin-top: 2rem; }
 
 /* ---------- Info utili ---------- */
-.info { background: var(--bianco); border-top: 1px solid var(--nero); }
+.info {
+  --sabbia: #e6d8c4;          /* marrone chiaro, tono pietra calda */
+  --sabbia-linea: rgba(70, 50, 30, .18);
+  background: var(--sabbia); border-top: 0;
+}
+.info .etichetta { color: #7a6650; }
+.info .info-blocco ul li, .info .porta li { border-bottom-color: var(--sabbia-linea); }
+.info .porta > div + div { border-left-color: var(--sabbia-linea); }
+.info .continua-griglia { background: var(--sabbia-linea); border-color: var(--sabbia-linea); }
+.info .continua-griglia a { background: #f2e9dc; }
+.info .continua-griglia a:hover { background: var(--nero); }
+.info .scendi { color: #7a6650; }
+.info .scendi .scorri-linea { background: var(--sabbia-linea); }
+.info .da-inserire { opacity: .55; }
 .info-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 5rem; }
 .info-blocco ul li { padding: .7rem 0; border-bottom: 1px solid var(--linea); }
 .info-blocco.accessibile { border-left: 1px solid var(--accento); padding-left: 1.5rem; }
