@@ -245,7 +245,7 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .mappa { width: 100%; aspect-ratio: 4 / 5; background: #ecebe7; border: 1px solid var(--linea); z-index: 0; }
 .mappa-assente { padding: 2rem; font-size: .9rem; color: var(--tenue); }
 .leaflet-container { font-family: var(--sans); }
-.leaflet-tile-pane { filter: grayscale(1) contrast(.95); }
+.leaflet-tile-pane { filter: grayscale(1) contrast(.85) brightness(1.08); }
 .pin span {
   display: grid; place-items: center; width: 30px; height: 30px; background: var(--bianco); border: 1px solid var(--nero);
   font: 500 .68rem/1 var(--sans); letter-spacing: .06em; color: var(--nero); transition: background .2s, color .2s;

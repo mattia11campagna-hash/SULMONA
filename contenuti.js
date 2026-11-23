@@ -352,9 +352,10 @@ const CONTENUTI = {
   if (box && window.L) {
     const mobile = window.matchMedia("(pointer: coarse)").matches;
     const mappa = L.map(box, { scrollWheelZoom: false, dragging: !mobile, tap: false, zoomControl: true, attributionControl: true });
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      maxZoom: 19, subdomains: "abcd",
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    // Sfondo OpenStreetMap (gratuito, senza chiave); reso in bianco e nero dal CSS
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(mappa);
     const lato = window.innerWidth < 820 ? 24 : 30;
     const icona = (testo, cls) => L.divIcon({ className: "pin " + cls, html: `<span>${testo}</span>`, iconSize: [lato, lato], iconAnchor: [lato / 2, lato / 2], popupAnchor: [0, -lato / 2 - 1] });
