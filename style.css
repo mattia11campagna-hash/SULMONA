@@ -300,20 +300,39 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .testo { margin-top: 2rem; }
 
 /* ---------- Info utili ---------- */
-.info { background: var(--nero); color: rgba(255,255,255,.82); border-top: 0; }
-.info h2, .info h3 { color: var(--bianco); }
-.info .etichetta { color: rgba(255,255,255,.55); }
+.info { background: var(--bianco); border-top: 1px solid var(--nero); }
 .info-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 5rem; }
-.info-blocco ul li { padding: .7rem 0; border-bottom: 1px solid rgba(255,255,255,.15); }
+.info-blocco ul li { padding: .7rem 0; border-bottom: 1px solid var(--linea); }
 .info-blocco.accessibile { border-left: 1px solid var(--accento); padding-left: 1.5rem; }
-.porta { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.5); }
+.porta { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--nero); }
 .porta > div { padding: 1.75rem 2rem 0 0; }
-.porta > div + div { padding-left: 2rem; border-left: 1px solid rgba(255,255,255,.15); }
-.porta li { padding: .8rem 0; border-bottom: 1px solid rgba(255,255,255,.15); font-family: var(--serif); font-size: 1.3rem; color: var(--bianco); }
+.porta > div + div { padding-left: 2rem; border-left: 1px solid var(--linea); }
+.porta li { padding: .8rem 0; border-bottom: 1px solid var(--linea); font-family: var(--serif); font-size: 1.3rem; color: var(--nero); }
 .segno { display: inline-grid; place-items: center; width: 22px; height: 22px; border: 1px solid; font-size: .9rem; letter-spacing: 0; }
 .porta .etichetta::before { display: none; }
-.segno.si { color: #9cc3a6; }
-.segno.no { color: #e08b9c; }
+.segno.si { color: #4f7a5c; }
+.segno.no { color: var(--accento); }
+
+/* Continua: segnala che la pagina prosegue */
+.continua { margin-top: 6rem; padding-top: 2.5rem; border-top: 1px solid var(--nero); }
+.continua-testa { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.continua-testa h3 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.continua-su { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; text-decoration: none; border-bottom: 1px solid; padding-bottom: .15rem; }
+.continua-griglia { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--linea); border: 1px solid var(--linea); }
+.continua-griglia a {
+  background: var(--carta); padding: 1.5rem 1.25rem 1.25rem; min-height: 150px; text-decoration: none;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; transition: background .3s, color .3s;
+}
+.continua-griglia .n { font-size: .7rem; letter-spacing: .2em; font-weight: 500; color: var(--accento); }
+.continua-griglia .t { font-family: var(--serif); font-size: 1.5rem; color: var(--nero); line-height: 1.15; display: flex; justify-content: space-between; align-items: flex-end; gap: .5rem; }
+.continua-griglia .t span { font-family: var(--sans); font-size: 1rem; transition: transform .4s var(--curva); }
+.continua-griglia a:hover { background: var(--nero); }
+.continua-griglia a:hover .t { color: var(--bianco); }
+.continua-griglia a:hover .t span { transform: translateY(4px); }
+.scendi { display: flex; flex-direction: column; align-items: center; gap: .6rem; margin-top: 3.5rem; color: var(--tenue); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; text-decoration: none; }
+.scendi .scorri-linea { background: var(--linea); }
+.scendi .scorri-linea::after { background: var(--nero); }
+
 .da-inserire { opacity: .45; font-style: italic; }
 
 /* ---------- Apertura approfondimenti ---------- */
@@ -326,15 +345,6 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .punti li + li { padding-left: 1.25rem; border-left: 1px solid var(--linea); }
 .punti strong { font-family: var(--serif); font-weight: 300; font-size: 3.2rem; color: var(--accento); line-height: 1; }
 .punti span { font-size: .9rem; }
-
-/* ---------- Storia ---------- */
-.timeline { border-top: 1px solid var(--nero); }
-.timeline li {
-  display: grid; grid-template-columns: 220px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--linea);
-}
-.timeline .data { font-family: var(--serif); font-size: 1.9rem; color: var(--nero); line-height: 1.1; }
-.timeline h4 { font-size: 1.45rem; margin-bottom: .4rem; font-weight: 400; }
-.timeline p { margin: 0; max-width: 62ch; }
 
 /* ---------- Sapori ---------- */
 .gruppi { display: grid; gap: 2.5rem; margin-top: 3rem; }
@@ -430,10 +440,11 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
   .sezione { padding: 5rem 0; }
   .titolo-sezione { margin-bottom: 2.75rem; }
   .due-colonne { grid-template-columns: 1fr; }
-  .timeline li { grid-template-columns: 1fr; gap: .4rem; }
   .eventi { grid-template-columns: 1fr; }
   .evento, .evento + .evento { padding: 1.75rem 0; border-left: 0; border-bottom: 1px solid var(--linea); }
   .info-griglia { grid-template-columns: 1fr; gap: 2.5rem; }
+  .continua-griglia { grid-template-columns: 1fr 1fr; }
+  .continua-griglia a { min-height: 120px; }
   .porta { grid-template-columns: 1fr; }
   .porta > div + div { padding: 2.5rem 0 0; border-left: 0; }
   .approfondisci-apertura { padding: 6rem 0 2rem; }

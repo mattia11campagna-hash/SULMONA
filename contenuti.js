@@ -200,19 +200,6 @@ const CONTENUTI = {
     }
   },
 
-  storia: [
-    { data: "III sec. a.C.", titolo: "Capitale dei Peligni", testo: "Sulmona era la capitale fortificata dei Peligni italici, situata in origine sulle alture del monte Mitra; si spostò nell'attuale posizione in età romana." },
-    { data: "81 a.C.", titolo: "Distrutta da Silla", testo: "Con il nome di Sulmo era uno dei tre municipi peligni. Venne distrutta da Silla dopo una ribellione per l'applicazione della Lex Cornelia de Suffragiis." },
-    { data: "43 a.C.", titolo: "Nasce Ovidio", testo: "Nel municipio romano di Sulmo nasce il poeta latino Publio Ovidio Nasone." },
-    { data: "1233", titolo: "Capitale con Federico II", testo: "In età sveva Federico II la nomina capitale del Giustizierato d'Abruzzo (1233-1273): nascono nuovi borghi fuori dalle antiche mura, insieme a zecca e oreficeria." },
-    { data: "1302", titolo: "Le nuove mura", testo: "Viene completato il nuovo perimetro murario settentrionale, con nuove porte: la città assume il caratteristico aspetto fusiforme che conserva ancora oggi." },
-    { data: "1443", titolo: "I torrioni aragonesi", testo: "Sotto Alfonso I d'Aragona vengono edificati torrioni angolari con muratura a scarpa. Oggi resta visibile la torre presso Porta Iapasseri." },
-    { data: "1610 – 1656", titolo: "I Borghese e la peste", testo: "Dopo il dominio cinquecentesco dei De Lannoy, la città passa con titolo principesco ai Borghese (1610). Nel 1656 una terribile peste e la mancanza di cavalieri portano alla sospensione dell'antica giostra cavalleresca." },
-    { data: "1706", titolo: "Il terremoto", testo: "Un disastroso terremoto provoca la caduta di alcune porte cittadine. Le ricostruzioni successive inglobano tratti delle antiche mura nelle abitazioni." },
-    { data: "XX secolo", titolo: "Medaglia d'Argento", testo: "Per la lotta partigiana nella Seconda Guerra Mondiale, Sulmona è decorata con la Medaglia d'Argento al Valor Militare." },
-    { data: "1995", titolo: "Rinasce la Giostra", testo: "Dopo la sospensione seicentesca, torna la Giostra Cavalleresca di Sulmona." }
-  ],
-
   sapori: {
     intro:
       "Il protagonista indiscusso è il confetto di Sulmona, in molte tipologie, composizioni artistiche e lavorazioni artigianali. Ma la tavola sulmonese ha molto altro da offrire.",
@@ -362,9 +349,6 @@ const CONTENUTI = {
   $("#confetto-punti").innerHTML = C.confetto.punti
     .map((p) => `<li><strong>${esc(p.numero)}</strong><span>${esc(p.testo)}</span></li>`).join("");
   $("#confetto-media").innerHTML = media(C.confetto.media);
-
-  $("#timeline").innerHTML = C.storia
-    .map((t) => `<li class="rivela"><span class="data">${esc(t.data)}</span><div><h4>${esc(t.titolo)}</h4><p>${esc(t.testo)}</p></div></li>`).join("");
 
   $("#sapori-intro").textContent = C.sapori.intro;
   $("#sapori-gruppi").innerHTML = C.sapori.gruppi

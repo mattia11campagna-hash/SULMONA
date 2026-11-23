@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=7">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -36,7 +36,6 @@
           <li><a href="#percorso">Il percorso in breve</a></li>
           <li><a href="#info">Info utili</a></li>
           <li><a href="#confetto">Il confetto</a></li>
-          <li><a href="#storia">Storia</a></li>
           <li><a href="#sapori">Sapori</a></li>
           <li><a href="#eventi">Eventi</a></li>
           <li><a href="#faq">Domande frequenti</a></li>
@@ -140,6 +139,21 @@
             <ul id="info-non-portare"></ul>
           </div>
         </div>
+
+        <!-- La pagina continua -->
+        <div class="continua rivela">
+          <div class="continua-testa">
+            <h3>Continua a scoprire Sulmona</h3>
+            <a class="continua-su" href="#percorso">↑ Torna al percorso</a>
+          </div>
+          <nav class="continua-griglia" aria-label="Altre sezioni">
+            <a href="#tappa-1"><span class="n">01 — 07</span><span class="t">Le tappe <span aria-hidden="true">↓</span></span></a>
+            <a href="#confetto"><span class="n">Il simbolo</span><span class="t">Il confetto <span aria-hidden="true">↓</span></span></a>
+            <a href="#sapori"><span class="n">A tavola</span><span class="t">Sapori <span aria-hidden="true">↓</span></span></a>
+            <a href="#eventi"><span class="n">Durante l'anno</span><span class="t">Eventi e FAQ <span aria-hidden="true">↓</span></span></a>
+          </nav>
+          <a class="scendi" href="#approfondisci"><span>Scorri per continuare</span><span class="scorri-linea"></span></a>
+        </div>
       </div>
     </section>
 
@@ -161,17 +175,6 @@
           <div id="confetto-testo" class="testo"></div>
           <ul id="confetto-punti" class="punti"></ul>
         </div>
-      </div>
-    </section>
-
-    <!-- Storia -->
-    <section id="storia" class="sezione">
-      <div class="contenitore">
-        <header class="titolo-sezione rivela">
-          <p class="etichetta">Linea del tempo</p>
-          <h2>Storia</h2>
-        </header>
-        <ol id="timeline" class="timeline"></ol>
       </div>
     </section>
 
@@ -232,6 +235,6 @@
   </footer>
 
   <noscript><p class="noscript">Per visualizzare i contenuti di questa pagina è necessario attivare JavaScript.</p></noscript>
-  <script src="contenuti.js?v=3"></script>
+  <script src="contenuti.js?v=7"></script>
 </body>
 </html>
