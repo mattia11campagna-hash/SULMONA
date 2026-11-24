@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="leaflet.css">
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -27,6 +27,10 @@
   <!-- Menu a tutto schermo -->
   <nav id="menu" class="menu" aria-label="Menu">
     <div class="menu-interno">
+      <a class="menu-partecipa" href="#partecipa">
+          <span class="mp-et">Iscrizioni</span>
+          <span class="mp-t">Partecipa all'itinerario <span aria-hidden="true">→</span></span>
+        </a>
       <div>
         <p class="etichetta">L'itinerario</p>
         <ol id="menu-tappe" class="menu-tappe"></ol>
@@ -34,7 +38,6 @@
       <div>
         <p class="etichetta">Scopri</p>
         <ul class="menu-link">
-          <li><a href="#partecipa">Partecipa</a></li>
           <li><a href="#percorso">Il percorso in breve</a></li>
           <li><a href="#info">Info utili</a></li>
           <li><a href="#confetto">Il confetto</a></li>

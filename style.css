@@ -78,6 +78,15 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .menu-tappe a:hover { padding-left: .5rem; transition: padding .3s; }
 .menu-link a { display: block; padding: .6rem 0; text-decoration: none; font-size: 1.05rem; color: var(--nero); border-bottom: 1px solid var(--linea); }
 .menu-link { margin-bottom: 2rem; }
+.menu-partecipa {
+  grid-column: 1 / -1; display: block; margin-bottom: -1rem; padding: 1.4rem 1.5rem; background: var(--accento); color: var(--bianco);
+  text-decoration: none; transition: background .3s;
+}
+.menu-partecipa:hover { background: var(--nero); }
+.mp-et { display: block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; opacity: .85; margin-bottom: .4rem; }
+.mp-t { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.1; }
+.mp-t span { font-family: var(--sans); font-size: 1.2rem; transition: transform .4s var(--curva); }
+.menu-partecipa:hover .mp-t span { transform: translateX(6px); }
 
 /* ==========================================================
    Pulsanti
