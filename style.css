@@ -348,7 +348,15 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .testo { margin-top: 2rem; }
 
 /* ---------- Partecipa ---------- */
-.partecipa { background: var(--carta); }
+.partecipa { background: var(--accento); color: rgba(255,255,255,.9); border-top: 0; }
+.partecipa h2 { color: var(--bianco); }
+.partecipa .etichetta { color: rgba(255,255,255,.75); }
+.partecipa .sottotitolo { color: rgba(255,255,255,.92); }
+.partecipa .partecipa-privacy { color: rgba(255,255,255,.8); border-left-color: rgba(255,255,255,.6); }
+.partecipa .partecipa-apri { color: var(--bianco); }
+.partecipa .partecipa-form iframe { border-color: transparent; }
+.partecipa .partecipa-segnaposto { border: 0; }
+.partecipa .da-inserire { opacity: .7; }
 .partecipa .due-colonne { align-items: start; }
 .partecipa-testa { position: sticky; top: calc(var(--barra) + 2rem); }
 .partecipa-privacy { margin-top: 2rem; padding-left: 1rem; border-left: 1px solid var(--accento); font-size: .85rem; color: var(--tenue); max-width: 46ch; }
