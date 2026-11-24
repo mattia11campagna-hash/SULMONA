@@ -167,6 +167,18 @@ const CONTENUTI = {
     ]
   },
 
+  /* ---------- Partecipa (bozza) ----------
+     formUrl: link "Incorpora" del Google Form (Invia → < >), quello che contiene "embedded=true".
+     Se è vuoto compare un segnaposto. */
+  partecipa: {
+    titolo: "Partecipa all'itinerario",
+    testo: "Da inserire: data, orario e modalità di partecipazione.",
+    inArrivo: "Le iscrizioni apriranno a breve: torna su questa pagina per prenotare il tuo posto.",
+    formUrl: "",
+    altezza: 1100,          // altezza del modulo in pixel (da regolare in base alle domande)
+    privacy: "Da inserire: informativa sul trattamento dei dati raccolti con il modulo."
+  },
+
   /* ---------- Info utili (da completare) ----------
      Scrivi i testi al posto di "Da inserire". Le voci vuote non vengono mostrate. */
   infoUtili: {
@@ -322,6 +334,27 @@ const CONTENUTI = {
     .join("");
   $("#anche-citta").innerHTML = C.prosegui.ancheInCitta.map((x) => `<li>${esc(x)}</li>`).join("");
   $("#dintorni").innerHTML = C.prosegui.neiDintorni.map((x) => `<li>${esc(x)}</li>`).join("");
+
+  /* ---------- Partecipa ---------- */
+  const pa = C.partecipa;
+  $("#partecipa-titolo").textContent = pa.titolo;
+  // Finché il modulo non c'è, la sezione mostra un messaggio "in arrivo" invece dei campi vuoti
+  const testoPa = da(pa.testo) && !pa.formUrl ? pa.inArrivo : pa.testo;
+  $("#partecipa-testo").innerHTML = `<span class="${da(testoPa) ? "da-inserire" : ""}">${esc(testoPa)}</span>`;
+  if (pa.formUrl) {
+    $("#partecipa-privacy").innerHTML = `<span class="${da(pa.privacy) ? "da-inserire" : ""}">${esc(pa.privacy)}</span>`;
+  } else {
+    $("#partecipa-privacy").remove();
+  }
+  if (pa.formUrl) {
+    const apri = pa.formUrl.replace(/[?&]embedded=true/, "");
+    $("#partecipa-form").innerHTML =
+      `<iframe src="${esc(pa.formUrl)}" title="Modulo di partecipazione" loading="lazy" style="height:${+pa.altezza || 1100}px">Caricamento…</iframe>
+       <a class="partecipa-apri" href="${esc(apri)}" target="_blank" rel="noopener">Il modulo non si vede bene? Aprilo in una nuova pagina ↗</a>`;
+  } else {
+    $("#partecipa-form").innerHTML =
+      `<div class="partecipa-segnaposto"><span class="etichetta-mini">Iscrizioni</span><p class="partecipa-arrivo">Modulo in arrivo</p><p>Il modulo di partecipazione sarà disponibile qui a breve.</p></div>`;
+  }
 
   /* ---------- Info utili ---------- */
   const iu = C.infoUtili;

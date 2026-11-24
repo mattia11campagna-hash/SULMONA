@@ -338,6 +338,21 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
 .due-colonne { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
 .testo { margin-top: 2rem; }
 
+/* ---------- Partecipa ---------- */
+.partecipa { background: var(--carta); }
+.partecipa .due-colonne { align-items: start; }
+.partecipa-testa { position: sticky; top: calc(var(--barra) + 2rem); }
+.partecipa-privacy { margin-top: 2rem; padding-left: 1rem; border-left: 1px solid var(--accento); font-size: .85rem; color: var(--tenue); max-width: 46ch; }
+.partecipa-form iframe { width: 100%; border: 1px solid var(--linea); background: var(--bianco); display: block; }
+.partecipa-apri { display: inline-block; margin-top: 1rem; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; color: var(--nero); text-decoration: none; border-bottom: 1px solid; }
+.partecipa-segnaposto {
+  min-height: 420px; border: 1px dashed #c9c3b8; background: var(--bianco);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; gap: .5rem;
+}
+.partecipa-segnaposto p { margin: 0; color: var(--tenue); }
+.partecipa-segnaposto .partecipa-arrivo { font-family: var(--serif); font-size: 2rem; color: var(--nero); font-style: italic; }
+.ap-partecipa { margin-top: 2rem; opacity: 0; animation: sali 1.2s var(--curva) 2.8s forwards; }
+
 /* ---------- Info utili ---------- */
 .info {
   --sabbia: #e6d8c4;          /* marrone chiaro, tono pietra calda */
@@ -483,6 +498,7 @@ body.bloccato .barra { background: var(--bianco); color: var(--nero); border-col
   .sezione { padding: 5rem 0; }
   .titolo-sezione { margin-bottom: 2.75rem; }
   .due-colonne { grid-template-columns: 1fr; }
+  .partecipa-testa { position: static; }
   .eventi { grid-template-columns: 1fr; }
   .evento, .evento + .evento { padding: 1.75rem 0; border-left: 0; border-bottom: 1px solid var(--linea); }
   .info-griglia { grid-template-columns: 1fr; gap: 2.5rem; }
