@@ -55,8 +55,8 @@ const CONTENUTI = {
         "Inaugurata nel 1925 su progetto dello scultore Ettore Ferrari, raffigura in bronzo il celebre poeta latino nato a Sulmona, nell'atto pensoso di meditare.",
       media: {
         tipo: "foto",
-        file: "statua-ovidio.jpg",
-        didascalia: "La statua in bronzo di Ovidio in Piazza XX Settembre"
+        file: "statua-ovidio-mia.jpg",
+        didascalia: "La statua in bronzo di Ovidio in Piazza XX Settembre, con un campanile e una cupola sullo sfondo"
       }
     },
     {
@@ -86,6 +86,7 @@ const CONTENUTI = {
       media: {
         tipo: "foto",
         file: "annunziata-controluce.jpg",
+        posizione: "50% 0%",       // inquadra la parte alta della foto (il campanile)
         didascalia: "La facciata barocca e il campanile a vela della Santissima Annunziata in controluce"
       }
     },
@@ -114,10 +115,9 @@ const CONTENUTI = {
       testo:
         "Risalente al 1269 e legato alla tradizione artistica dei confetti delle monache di clausura, ospita oggi il Museo Diocesano e il Polo Culturale Civico Diocesano.",
       media: {
-        tipo: "video",
-        file: "",
-        poster: "",
-        didascalia: "Video: l'ex Monastero di Santa Chiara"
+        tipo: "foto",
+        file: "santa-chiara.jpg",
+        didascalia: "L'ex Monastero di Santa Chiara visto attraverso un arco"
       }
     },
     {
@@ -258,7 +258,8 @@ const CONTENUTI = {
         </video><figcaption>${did}</figcaption></figure>`;
     }
     if (m.file) {
-      return `<figure class="media ${extra}"><img src="${esc(m.file)}" alt="${did}" loading="lazy"><figcaption>${did}</figcaption></figure>`;
+      const pos = m.posizione ? ` style="object-position:${esc(m.posizione)}"` : "";
+      return `<figure class="media ${extra}"><img src="${esc(m.file)}" alt="${did}" loading="lazy"${pos}><figcaption>${did}</figcaption></figure>`;
     }
     const etichetta = m.tipo === "video" ? "Video" : "Foto";
     return `<figure class="media segnaposto ${m.tipo === "video" ? "is-video" : ""} ${extra}" role="img" aria-label="Segnaposto: ${did}">
