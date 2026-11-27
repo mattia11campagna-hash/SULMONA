@@ -15,8 +15,8 @@ const CONTENUTI = {
     sottotitolo: "Un itinerario in 7 tappe nel cuore della Valle Peligna",
     video: {
       tipo: "video",
-      file: "apertura-madonna.mp4",
-      poster: "apertura-madonna.jpg",
+      file: "apertura-madonna.mp4?v=2",
+      poster: "apertura-madonna.jpg?v=2",
       didascalia: "L'ingresso in una chiesa di Sulmona fino alla statua della Madonna"
     }
   },
