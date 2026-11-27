@@ -15,9 +15,9 @@ const CONTENUTI = {
     sottotitolo: "Un itinerario in 7 tappe nel cuore della Valle Peligna",
     video: {
       tipo: "video",
-      file: "apertura-montaggio.mp4",
-      poster: "apertura-montaggio.jpg",
-      didascalia: "Scorci di Sulmona: l'acquedotto medievale, una fontana, un portale, l'interno di una chiesa e il viale del Cimitero Monumentale"
+      file: "apertura-madonna.mp4",
+      poster: "apertura-madonna.jpg",
+      didascalia: "L'ingresso in una chiesa di Sulmona fino alla statua della Madonna"
     }
   },
 
@@ -444,7 +444,7 @@ const CONTENUTI = {
 
   /* ---------- Barra: diventa piena dopo l'apertura ---------- */
   const barra = $("#barra");
-  const suScroll = () => barra.classList.add("piena"); // con l'apertura chiara la barra è sempre piena
+  const suScroll = () => barra.classList.toggle("piena", window.scrollY > window.innerHeight * 0.6);
   window.addEventListener("scroll", suScroll, { passive: true }); suScroll();
 
   /* ---------- Comparsa allo scorrimento ---------- */
