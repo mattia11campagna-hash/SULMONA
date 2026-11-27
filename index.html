@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="leaflet.css">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=16">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -27,10 +27,6 @@
   <!-- Menu a tutto schermo -->
   <nav id="menu" class="menu" aria-label="Menu">
     <div class="menu-interno">
-      <a class="menu-partecipa" href="#partecipa">
-          <span class="mp-et">Iscrizioni</span>
-          <span class="mp-t">Partecipa all'itinerario <span aria-hidden="true">→</span></span>
-        </a>
       <div>
         <p class="etichetta">L'itinerario</p>
         <ol id="menu-tappe" class="menu-tappe"></ol>
@@ -70,7 +66,6 @@
           <span id="ap-titolo" class="ap-titolo"></span>
         </h1>
         <p id="ap-sottotitolo" class="ap-sottotitolo"></p>
-        <a class="bottone chiaro ap-partecipa" href="#partecipa">Partecipa</a>
       </div>
       <a class="scorri" href="#inizio" aria-label="Inizia l'itinerario">
         <span>Scorri</span><span class="scorri-linea"></span>
@@ -102,7 +97,6 @@
             </figure>
             <a class="bottone scuro link-maps" href="#" target="_blank" rel="noopener">Percorso completo in Google Maps</a>
             <a class="bottone contorno" href="#info">Info utili <span aria-hidden="true">↓</span></a>
-            <a class="bottone contorno" href="#partecipa">Partecipa <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </div>
@@ -121,19 +115,6 @@
           <p class="etichetta">Nei dintorni</p>
           <ul id="dintorni"></ul>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ PARTECIPA (bozza) ============ -->
-    <section id="partecipa" class="sezione partecipa">
-      <div class="contenitore due-colonne">
-        <div class="partecipa-testa rivela">
-          <p class="etichetta">Iscrizioni</p>
-          <h2 id="partecipa-titolo"></h2>
-          <p id="partecipa-testo" class="sottotitolo"></p>
-          <p id="partecipa-privacy" class="partecipa-privacy"></p>
-        </div>
-        <div id="partecipa-form" class="partecipa-form rivela"></div>
       </div>
     </section>
 
@@ -243,6 +224,6 @@
 
   <noscript><p class="noscript">Per visualizzare i contenuti di questa pagina è necessario attivare JavaScript.</p></noscript>
   <script src="leaflet.js"></script>
-  <script src="contenuti.js?v=12"></script>
+  <script src="contenuti.js?v=16"></script>
 </body>
 </html>

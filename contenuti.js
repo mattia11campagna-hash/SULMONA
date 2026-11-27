@@ -69,10 +69,9 @@ const CONTENUTI = {
       testo:
         "È il principale luogo di culto della città e sede vescovile della diocesi di Sulmona-Valva. Custodisce un prezioso fonte battesimale marmoreo del XVIII secolo.",
       media: {
-        tipo: "video",
-        file: "",
-        poster: "",
-        didascalia: "Video: la Cattedrale di San Panfilo e il fonte battesimale marmoreo"
+        tipo: "foto",
+        file: "san-panfilo-interno.jpg",
+        didascalia: "Un raggio di luce all'interno della Cattedrale di San Panfilo"
       }
     },
     {
@@ -86,8 +85,8 @@ const CONTENUTI = {
         "Fondato nel 1320 come ospedale per pellegrini, unisce la chiesa barocca al palazzo gotico-rinascimentale, sede dei musei civici, affiancato dal campanile più alto della città.",
       media: {
         tipo: "foto",
-        file: "annunziata.jpg",
-        didascalia: "La chiesa barocca e il palazzo gotico-rinascimentale della Santissima Annunziata"
+        file: "annunziata-controluce.jpg",
+        didascalia: "La facciata barocca e il campanile a vela della Santissima Annunziata in controluce"
       }
     },
     {
@@ -146,10 +145,9 @@ const CONTENUTI = {
       testo:
         "Luogo simbolico della memoria collettiva cittadina, raccoglie monumenti funerari e architetture che raccontano la storia delle famiglie e della comunità sulmonese.",
       media: {
-        tipo: "video",
-        file: "",
-        poster: "",
-        didascalia: "Video: monumenti funerari e architetture del Cimitero Monumentale"
+        tipo: "foto",
+        file: "cimitero.jpg",
+        didascalia: "Una colonnina in ferro battuto e la grande croce del Cimitero Monumentale"
       }
     }
   ],
